@@ -7,6 +7,7 @@ from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
     from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 
 
 class XxplanmaxLineDtls(ERDBase):
@@ -91,6 +92,11 @@ class XxplanmaxLineDtls(ERDBase):
     wip_reservation: Mapped[str] = mapped_column('wip_reservation', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     bom_explosion_date: Mapped[str] = mapped_column('bom_explosion_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxHeaderDtls_model_line_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="XxplanmaxLineDtls_reference_line_id", primaryjoin="XxplanmaxHeaderDtls.model_line_id==XxplanmaxLineDtls.reference_line_id", foreign_keys="[XxplanmaxLineDtls.reference_line_id]", viewonly=True)
         
 
     
