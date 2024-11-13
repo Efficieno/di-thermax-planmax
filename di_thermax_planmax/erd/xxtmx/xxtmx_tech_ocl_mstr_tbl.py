@@ -11,7 +11,7 @@ class XxtmxTechOclMstrTbl(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxtmx_tech_ocl_mstr_tbl"
     __table_args__ = {"schema": "xxtmx", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -818.0726318359375, "ui_y_pos": 609.666259765625, "colour": "#F2F3F5"}
 
     otm_header_id: Mapped[str] = mapped_column('otm_header_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     organization_id: Mapped[str] = mapped_column('organization_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
