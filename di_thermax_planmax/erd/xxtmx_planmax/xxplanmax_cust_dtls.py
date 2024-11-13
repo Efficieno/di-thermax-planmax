@@ -5,6 +5,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
+if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 
 
 class XxplanmaxCustDtls(ERDBase):
@@ -35,6 +37,11 @@ class XxplanmaxCustDtls(ERDBase):
     province: Mapped[str] = mapped_column('province', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
     country: Mapped[str] = mapped_column('country', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxHeaderDtls_ship_site_use_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="XxplanmaxCustDtls_site_use_id", primaryjoin="XxplanmaxHeaderDtls.ship_site_use_id==XxplanmaxCustDtls.site_use_id", foreign_keys="[XxplanmaxCustDtls.site_use_id]", viewonly=True)
 
 
 
