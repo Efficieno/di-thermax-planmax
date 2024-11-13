@@ -11,7 +11,7 @@ class FndConcurrentProcesses(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "fnd_concurrent_processes"
     __table_args__ = {"schema": "applsys", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -1195.6298215390625, "ui_y_pos": 201.39263223632815, "colour": "#F2F3F5"}
 
     concurrent_process_id: Mapped[str] = mapped_column('concurrent_process_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     last_update_date: Mapped[str] = mapped_column('last_update_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
