@@ -6,6 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
+    from ..apps.org_organization_definitions import OrgOrganizationDefinitions
     from ..ont.oe_order_lines_all import OeOrderLinesAll
     from ..ont.oe_order_lines_all import OeOrderLinesAll
     from ..ont.oe_order_headers_all import OeOrderHeadersAll
@@ -95,6 +96,11 @@ class XxplanmaxLineDtls(ERDBase):
     wip_reservation: Mapped[str] = mapped_column('wip_reservation', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     bom_explosion_date: Mapped[str] = mapped_column('bom_explosion_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    OrgOrganizationDefinitions_organization_id: Mapped["OrgOrganizationDefinitions"] = relationship(back_populates="XxplanmaxLineDtls_organization_id", primaryjoin="OrgOrganizationDefinitions.organization_id==XxplanmaxLineDtls.organization_id", foreign_keys="[OrgOrganizationDefinitions.organization_id]", viewonly=True)
         
 
     
