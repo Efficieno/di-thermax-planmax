@@ -11,7 +11,7 @@ class XxplanmaxLineDtls(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxplanmax_line_dtls"
     __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": -439.3756408691406, "ui_y_pos": 764.1414184570312, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": 106.38436889648438, "ui_y_pos": 556.7813720703125, "colour": "#F2F3F5"}
 
     sales_order_header_id: Mapped[str] = mapped_column('sales_order_header_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     sales_order_header: Mapped[str] = mapped_column('sales_order_header', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
