@@ -39,7 +39,34 @@ To enable the code coverage reports, see [here](https://fpgmaas.github.io/cookie
 ## Releasing a new version
 
 
-
 ---
 
 Repository initiated with [fpgmaas/cookiecutter-poetry](https://github.com/fpgmaas/cookiecutter-poetry).
+
+
+### Seeded Objects
+
+- q_di_domestic_heating_v
+- mtl_system_items_b
+- MTL_ONHAND_TOTAL_V
+- hr_operating_units
+- oe_order_headers_all
+- oe_order_lines_all
+- oe_transaction_types_tl
+- org_organization_definitions
+- Q_PRODUCTION_RELEASE_NOTE_ST_V
+- mtl_reservations_v
+
+### Custom Objects
+
+- xxplanmax_calender
+- xxplanmax_cust_dtls -- Transform to View
+- xxplanmax_inv_dtls -- Transform to View ??
+- XXPLANMAX_MODEL_XREF
+- XXPLANMAX_HEADER_DTLS
+- XXPLANMAX_LINE_DTLS
+- xxplanmax_po_proj_dtls -- Transform to View
+- xxtmx_tech_ocl_specs_tbl
+- xxtmx_tech_ocl_mstr_tbl
+- xxplanmax_wip_req_dtls -- Transform to View
+- xxplanmax_wip_proj_dtls -- Transform to View
