@@ -7,6 +7,7 @@ from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
     from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
     from ..inv.mtl_system_items_b import MtlSystemItemsB
     from ..inv.mtl_system_items_b import MtlSystemItemsB
@@ -387,6 +388,11 @@ class OeOrderLinesAll(ERDBase):
     source_order_line_id: Mapped[str] = mapped_column('source_order_line_id', Integer, primary_key=False, info={"column_metadata": ColumnMetadata()})
     vrm_last_update_date: Mapped[str] = mapped_column('vrm_last_update_date', Date, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxHeaderDtls_sales_order_header_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="OeOrderLinesAll_header_id", primaryjoin="XxplanmaxHeaderDtls.sales_order_header_id==OeOrderLinesAll.header_id", foreign_keys="[OeOrderLinesAll.header_id]", viewonly=True)
         
 
     
