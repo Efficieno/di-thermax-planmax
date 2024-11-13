@@ -58,7 +58,7 @@ class PlanmaxHeaders(ERDBase):
     manual_ord_chg_status = column_property(XxplanmaxHeaderDtls.manual_ord_chg_status)
     order_status = column_property(XxplanmaxHeaderDtls.order_status)
     interface_status = column_property(XxplanmaxHeaderDtls.interface_status)
-    creation_date = column_property(XxplanmaxHeaderDtls.creation_date)
+    creation_date = column_property(XxplanmaxHeaderDtls.creation_date, XxplanmaxCustDtls.creation_date)
     last_update_date = column_property(XxplanmaxHeaderDtls.last_update_date)
     refresh_date = column_property(XxplanmaxHeaderDtls.refresh_date)
     bill_site_use_id = column_property(XxplanmaxHeaderDtls.bill_site_use_id)
