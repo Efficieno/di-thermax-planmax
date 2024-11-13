@@ -148,7 +148,7 @@ class PlanmaxHeaders(ERDBase):
     sos_revision_date = column_property(XxplanmaxHeaderDtls.sos_revision_date)
     mfg_organization_code = column_property(XxplanmaxHeaderDtls.mfg_organization_code)
     customer_name = column_property(XxplanmaxHeaderDtls.customer_name)
-    account_number = column_property(XxplanmaxHeaderDtls.account_number)
+    account_number = column_property(XxplanmaxHeaderDtls.account_number, XxplanmaxCustDtls.account_number)
     prn_creation_status = column_property(XxplanmaxHeaderDtls.prn_creation_status)
     manual_order_status = column_property(XxplanmaxHeaderDtls.manual_order_status)
     ordered_item = column_property(XxplanmaxHeaderDtls.ordered_item)
