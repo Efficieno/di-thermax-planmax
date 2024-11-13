@@ -1,0 +1,62 @@
+# Prompt Template to generate SQL Statement
+
+
+Given the below SQLAlchemy ORM Classes with mapped attributes
+
+ORM Class name OrderHeaders
+ORM Class Mapped attributes
+header_id
+organization_code
+org_id
+order_type_id
+order_number
+version_number
+ordered_date
+request_date
+pricing_date
+shipment_priority_code
+demand_class_code
+price_list_id
+tax_exempt_flag
+tax_exempt_number
+tax_exempt_reason_code
+conversion_rate
+conversion_type_code
+conversion_rate_date
+partial_shipments_allowed
+ship_tolerance_above
+ship_tolerance_below
+transactional_curr_code
+agreement_id
+tax_point_code
+cust_po_number
+shipping_method_code
+freight_carrier_code
+fob_point_code
+freight_terms_code
+cancelled_flag
+open_flag
+booked_flag
+transaction_phase_code
+ship_from_org_id
+flow_status_code
+
+
+ORM Class name OrderLines
+ORM Class Mapped attributes
+header_id
+organization_code
+org_id
+order_type_id
+order_number
+version_number
+ordered_date
+request_date
+pricing_date
+shipment_priority_code
+demand_class_code
+price_list_id
+tax_exempt_flag
+
+generate an SQLAlchemy Select expression for OrderLines selecting order number version number flow status code where flow status code is ENTERED
+return only the select expression

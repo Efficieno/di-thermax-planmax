@@ -1,0 +1,15 @@
+{
+   "component_type":"metrics",
+   "name":"DemoMetric",
+   "query": "Select(func.count(OrderHeaders.header_id).label('count'))",
+   "data_objects": {"OrderHeaders": "demo_project.ontologies.order_headers"},
+   "query_filters":{
+      "local_filters":[
+      ]
+   },
+   "header": "Demo Metric",
+   "description": "Demo Metric Desc",
+   "columns": [],
+    "chart_options": {},
+    "relations": {}
+}
