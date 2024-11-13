@@ -164,6 +164,10 @@ class XxplanmaxHeaderDtls(ERDBase):
 
     
 
+        
+
+    
+
     OeOrderLinesAll_header_id: Mapped["OeOrderLinesAll"] = relationship(back_populates="XxplanmaxHeaderDtls_sales_order_header_id", primaryjoin="OeOrderLinesAll.header_id==XxplanmaxHeaderDtls.sales_order_header_id", foreign_keys="[OeOrderLinesAll.header_id]", viewonly=True)
         
 
