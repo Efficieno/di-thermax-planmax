@@ -6,6 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
 
 
@@ -29,6 +30,7 @@ class HrOperatingUnits(ERDBase):
 
     
 
+    XxplanmaxHeaderDtls_operating_unit_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="HrOperatingUnits_organization_id", primaryjoin="XxplanmaxHeaderDtls.operating_unit_id==HrOperatingUnits.organization_id", foreign_keys="[HrOperatingUnits.organization_id]", viewonly=True)
         
 
     
