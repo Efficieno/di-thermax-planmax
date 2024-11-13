@@ -11,7 +11,7 @@ class XxplanmaxPoProjDtls(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxplanmax_po_proj_dtls"
     __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -445.89337158203125, "ui_y_pos": 877.5753173828125, "colour": "#F2F3F5"}
 
     org_id: Mapped[str] = mapped_column('org_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     project_id: Mapped[str] = mapped_column('project_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
