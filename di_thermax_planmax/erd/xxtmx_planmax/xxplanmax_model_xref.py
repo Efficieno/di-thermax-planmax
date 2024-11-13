@@ -11,7 +11,7 @@ class XxplanmaxModelXref(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxplanmax_model_xref"
     __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -453.2254943847656, "ui_y_pos": 522.4486389160156, "colour": "#F2F3F5"}
 
     model_item: Mapped[str] = mapped_column('model_item', String, primary_key=True, info={"column_metadata": ColumnMetadata()})
     model_number: Mapped[str] = mapped_column('model_number', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
