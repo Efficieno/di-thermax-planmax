@@ -11,7 +11,7 @@ class XxplanmaxHeaderDtls(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxplanmax_header_dtls"
     __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -441.4256591796875, "ui_y_pos": 635.36279296875, "colour": "#F2F3F5"}
 
     operating_unit_id: Mapped[str] = mapped_column('operating_unit_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     sales_order_header_id: Mapped[str] = mapped_column('sales_order_header_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
