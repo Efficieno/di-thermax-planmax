@@ -6,6 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_cust_dtls import XxplanmaxCustDtls
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
     from ..apps.hr_operating_units import HrOperatingUnits
     from ..ont.oe_order_lines_all import OeOrderLinesAll
@@ -162,6 +163,11 @@ class XxplanmaxHeaderDtls(ERDBase):
     sos_item_id: Mapped[str] = mapped_column('sos_item_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     reflection_completion_date: Mapped[str] = mapped_column('reflection_completion_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxCustDtls_site_use_id: Mapped["XxplanmaxCustDtls"] = relationship(back_populates="XxplanmaxHeaderDtls_ship_site_use_id", primaryjoin="XxplanmaxCustDtls.site_use_id==XxplanmaxHeaderDtls.ship_site_use_id", foreign_keys="[XxplanmaxCustDtls.site_use_id]", viewonly=True)
         
 
     
