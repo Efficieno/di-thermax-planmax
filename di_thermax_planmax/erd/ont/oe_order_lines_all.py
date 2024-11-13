@@ -1,11 +1,12 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Date, Float, Integer, String
+from sqlalchemy import Date, Float, Integer, String, Numeric, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
     from ..inv.mtl_system_items_b import MtlSystemItemsB
     from ..inv.mtl_system_items_b import MtlSystemItemsB
@@ -386,6 +387,11 @@ class OeOrderLinesAll(ERDBase):
     source_order_line_id: Mapped[str] = mapped_column('source_order_line_id', Integer, primary_key=False, info={"column_metadata": ColumnMetadata()})
     vrm_last_update_date: Mapped[str] = mapped_column('vrm_last_update_date', Date, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxHeaderDtls_model_line_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="OeOrderLinesAll_line_id", primaryjoin="XxplanmaxHeaderDtls.model_line_id==OeOrderLinesAll.line_id", foreign_keys="[OeOrderLinesAll.line_id]", viewonly=True)
         
 
     
