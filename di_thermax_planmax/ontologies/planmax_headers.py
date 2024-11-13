@@ -11,7 +11,7 @@ from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganiza
 
 class PlanmaxHeaders(ERDBase):
     __table__ = (join(XxplanmaxHeaderDtls, XxplanmaxCustDtls, XxplanmaxHeaderDtls.XxplanmaxCustDtls_site_use_id.expression)
-                 .join(XxplanmaxHeaderDtls, OrgOrganizationDefinitions, XxplanmaxHeaderDtls.OrgOrganizationDefinitions_organization_id.expression))
+                 .join(OrgOrganizationDefinitions, XxplanmaxHeaderDtls.OrgOrganizationDefinitions_organization_id.expression))
     __table_properties__ = {"ui_x_pos": 503.13734483912555, "ui_y_pos": 891.5731584714746, "colour": "#F2F3F5"}
 
 
