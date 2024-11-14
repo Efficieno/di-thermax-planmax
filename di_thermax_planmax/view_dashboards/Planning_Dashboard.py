@@ -38,7 +38,7 @@ class PlanningDashboard(Dashboard):
                           columns=[],
                           chart_options={
     "title": {
-        "text": "Order Status Distribution",
+        "text": "Group Name Distribution",
         "subtext": "Value Breakdown",
         "left": "center"
     },
@@ -58,7 +58,7 @@ class PlanningDashboard(Dashboard):
                 "value": "value"
             },
             "label": {
-                "show": True,
+                "show": true,
             }
         }
     ]
