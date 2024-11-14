@@ -12,11 +12,11 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 372}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 373.46875}], 'size': 1472}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '4'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '5'}, 'size': 249.46875}], 'size': 314.09375}], 'size': 745.46875}
-    __grid_width__ = 1786.09375
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 372}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 373.46875}], 'size': 1258}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '4'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '5'}, 'size': 249.46875}], 'size': 268.578125}], 'size': 745.46875}
+    __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "HORIZONTAL"
-    __active_group__ = 2
+    __active_group__ = 3
 
     charts_orders_by_status = PanelComponent(component_type="charts",
                           name="Orders by Status",
@@ -50,7 +50,7 @@ class PlanningDashboard(Dashboard):
                           chart_options={},
                           content_component="mediator",
                           relations=[],
-                          metadata={'additional_field_visible': True, 'display': '1000', 'font_size': '2', 'font_style': ['bold']})
+                          metadata={'additional_field_visible': True, 'display': '1000', 'font_size': '1.5', 'font_style': ['bold']})
     metrics_MGiwGCl28 = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="Select(func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.reflection_config_status == 'P')",
