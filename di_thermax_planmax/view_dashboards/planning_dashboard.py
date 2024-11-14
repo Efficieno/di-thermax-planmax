@@ -6,8 +6,29 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_booked_order_by_curr'], 'activeView': 'charts_booked_order_by_curr', 'id': '10'},
-                                                         'size': 260, 'visible': False}], 'size': 1787.949951171875}
+    __grid_root_element__ = {
+   "type":"branch",
+   "data":[
+      {
+         "type":"branch",
+         "data":[
+            {
+               "type":"leaf",
+               "data":{
+                  "views":[
+                     "charts_booked_order_by_curr"
+                  ],
+                  "activeView":"charts_booked_order_by_curr",
+                  "id":"1"
+               },
+               "size":893
+            }
+         ],
+         "size":185
+      }
+   ],
+   "size":1787.949951171875
+}
     __grid_width__ = 1787.949951171875
     __grid_height__ = 777.7833251953125
     __grid_orientation__ = "VERTICAL"
