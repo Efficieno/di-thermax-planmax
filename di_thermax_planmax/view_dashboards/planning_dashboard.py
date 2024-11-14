@@ -16,7 +16,7 @@ class PlanningDashboard(Dashboard):
     charts_booked_order_by_curr = PanelComponent(component_type="charts",
                                                  name="Booked Orders by Curr",
                                                  query="Select(OrderHeaders.transactional_curr_code, func.count(OrderHeaders.header_id).label('count')).group_by(OrderHeaders.transactional_curr_code)",
-                                                 data_objects={'OrderHeaders': 'demo_project.ontologies.order_headers'},
+                                                 data_objects={'OrderHeaders': 'di_thermax_planmax.ontologies.order_headers'},
                                                  header="Booked Orders by Curr",
                                                  description="Booked Orders by Curr",
                                                  columns=[],
