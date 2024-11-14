@@ -44,6 +44,7 @@ class PlanningDashboard(Dashboard):
     },
     "tooltip": {
         "trigger": "item",
+        "formatter": "{b}: {c} ({d}%)"
     },
     "legend": {
         "orient": "vertical",
@@ -60,6 +61,7 @@ class PlanningDashboard(Dashboard):
             },
             "label": {
                 "show": True,
+                "formatter": "{b}: {c} ({d}%)"
             }
         }
     ]
