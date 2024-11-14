@@ -15,7 +15,7 @@ class PlanningDashboard(Dashboard):
 
     __grid_root_element__ = {'type': 'branch', 'data': [
         {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 372},
-                                    {'type': 'leaf', 'data': {'views': ['table_order_header_details'], 'activeView': 'table_order_header_details', 'id': '1'}, 'size': 372}], 'size': 1472}, 
+                                    {'type': 'leaf', 'data': {'views': ['table_order_header_details'], 'activeView': 'table_order_header_details', 'id': '10'}, 'size': 372}], 'size': 1472}, 
         {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '4'}, 'size': 138}, 
                                     {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '5'}, 'size': 156}, 
                                     {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '6'}, 'size': 170}, 
