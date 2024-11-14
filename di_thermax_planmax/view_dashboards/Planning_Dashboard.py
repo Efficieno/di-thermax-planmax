@@ -35,7 +35,13 @@ class PlanningDashboard(Dashboard):
                           columns=[],
                           chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
                           content_component="mediator",
-                          relations=[],
+                          relations=[{"component_name": "table_order_header_details",
+                                              "relation_name": "Order Header Details",
+                                              "relations": [{"source_class_name": "PlanmaxHeaders",
+                                                             "source_column_name": "order_status",
+                                                             "destination_class_name": "PlanmaxHeaders",
+                                                             "destination_column_name": "order_status"}]
+                                    }],
                           metadata={},
                           drill_downs={0: "PlanmaxHeaders.group_name",
                                        1: "PlanmaxHeaders.sub_group"})
