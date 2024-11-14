@@ -15,10 +15,10 @@ class PlanningDashboard(Dashboard):
 
     charts_booked_order_by_curr = PanelComponent(component_type="charts",
                                                  name="Booked Orders by Curr",
-                                                 query="Select(OrderHeaders.transactional_curr_code, func.count(OrderHeaders.header_id).label('count')).group_by(OrderHeaders.transactional_curr_code)",
-                                                 data_objects={'OrderHeaders': 'di_thermax_planmax.ontologies.order_headers'},
-                                                 header="Booked Orders by Curr",
-                                                 description="Booked Orders by Curr",
+                                                 query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count')).group_by(PlanmaxHeaders.order_status)",
+                                                 data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                                 header="Open Orders by Status",
+                                                 description="Open Orders by Status",
                                                  columns=[],
                                                  chart_options={
                                                      "series": [
@@ -35,7 +35,7 @@ class PlanningDashboard(Dashboard):
                                                          {
                                                              "show": True,
                                                              "subtext": "Open orders",
-                                                             "text": "Open Jobs by Currency"
+                                                             "text": "Open Orders By Status"
                                                          }
                                                      ],
                                                      "tooltip": {
