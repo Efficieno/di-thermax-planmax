@@ -29,7 +29,9 @@ class PlanningDashboard(Dashboard):
                           chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
                           content_component="mediator",
                           relations=[],
-                          metadata={})
+                          metadata={},
+                          drill_downs={0: "OrderHeaders.transactional_curr_code",
+                                       1: "OrderHeaders.shipping_method_code"})
     charts_orders_by_group_bar = PanelComponent(component_type="charts",
                           name="Orders by Status",
                           query="Select(PlanmaxHeaders.group_name, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value')).group_by(PlanmaxHeaders.group_name)",
