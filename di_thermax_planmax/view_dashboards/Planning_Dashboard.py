@@ -12,11 +12,11 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 763.578125}], 'size': 186}, {'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 186}, {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '4'}, 'size': 186}, {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '5'}, 'size': 187.46875}], 'size': 1526.578125}
-    __grid_width__ = 1526.578125
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 372}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 373.46875}], 'size': 1472}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '4'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '5'}, 'size': 249.46875}], 'size': 314.09375}], 'size': 745.46875}
+    __grid_width__ = 1786.09375
     __grid_height__ = 745.46875
-    __grid_orientation__ = "VERTICAL"
-    __active_group__ = 5
+    __grid_orientation__ = "HORIZONTAL"
+    __active_group__ = 2
 
     charts_orders_by_status = PanelComponent(component_type="charts",
                           name="Orders by Status",
