@@ -31,12 +31,38 @@ class PlanningDashboard(Dashboard):
                           metadata={})
     charts_orders_by_group = PanelComponent(component_type="charts",
                           name="Orders by Group",
-                          query="Select(PlanmaxHeaders.group_name, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value')).group_by(PlanmaxHeaders.group_name)",
+                          query="Select(PlanmaxHeaders.group_name, func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value')).group_by(PlanmaxHeaders.group_name)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Orders by Group",
                           description="Orders by Group",
                           columns=[],
-                          chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'group_name', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'group_name', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Group'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
+                          chart_options={
+    "title": {
+        "text": "Order Status Distribution",
+        "subtext": "Value Breakdown",
+        "left": "center"
+    },
+    "tooltip": {
+        "trigger": "item",
+    },
+    "legend": {
+        "orient": "vertical",
+        "left": "left",
+    },
+    "series": [
+        {
+            "type": "pie",
+            "radius": "50%",
+            "encode": {
+                "itemName": "group_name",
+                "value": "value"
+            },
+            "label": {
+                "show": true,
+            }
+        }
+    ]
+},
                           content_component="mediator",
                           relations=[],
                           metadata={})
