@@ -2,17 +2,19 @@ from efficieno.components.dashboard_objects import PanelComponent, Dashboard, Co
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.order_lines import OrderLines
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 
 
 class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 763.578125}], 'size': 372}, {'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 373.46875}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 763.578125}], 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 248}, {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '4'}, 'size': 249.46875}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 3
+    __active_group__ = 4
 
     charts_orders_by_status = PanelComponent(component_type="charts",
                           name="Orders by Status",
@@ -47,3 +49,14 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[],
                           metadata={'additional_field_visible': True, 'display': '1000', 'font_size': '2', 'font_style': ['bold']})
+    metrics_MGiwGCl28 = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.reflection_config_status == 'P')",
+                          data_objects={'OrderLines': 'di_thermax_planmax.ontologies.order_lines', 'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="Pending Reflection",
+                          description="Pending Reflection",
+                          columns=[],
+                          chart_options={},
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'display': '1000', 'font_size': '2', 'font_style': ['bold'], 'additional_field_visible': True})
