@@ -18,8 +18,8 @@ class PlanningDashboard(Dashboard):
         {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '4'}, 'size': 138}, 
                                     {'type': 'leaf', 'data': {'views': ['metrics_MGiwGCl28'], 'activeView': 'metrics_MGiwGCl28', 'id': '5'}, 'size': 156}, 
                                     {'type': 'leaf', 'data': {'views': ['metrics_w1T41TC2A'], 'activeView': 'metrics_w1T41TC2A', 'id': '6'}, 'size': 170}, 
-                                    {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '3'},
-                                    {'type': 'leaf', 'data': {'views': ['table_order_header_details'], 'activeView': 'table_order_header_details', 'id': '10'}, 'size': 372}, 'size': 281.46875}
+                                    {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '3'}, 'size': 281.46875},
+                                    {'type': 'leaf', 'data': {'views': ['table_order_header_details'], 'activeView': 'table_order_header_details', 'id': '10'}, 'size': 372}, 
                                    ], 'size': 314.09375}], 'size': 745.46875}
     __grid_width__ = 1786.09375
     __grid_height__ = 745.46875
