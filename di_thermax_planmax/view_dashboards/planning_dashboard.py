@@ -6,14 +6,7 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_booked_order_by_curr'], 'activeView': 'charts_booked_order_by_curr', 'id': '6'},
-                                                         'size': 260, 'visible': False}, 
-                                                        {'type': 'branch', 'data': [
-                                                        {'type': 'leaf', 'data': {'views': ['tables_order_header'], 'activeView': 'tables_order_header', 'id': '7'}, 'size': 893},
-                                                        {'type': 'leaf', 'data': {'views': ['charts_basic'], 'activeView': 'charts_basic', 'id': '9'}, 'size': 894.949951171875}], 'size': 592.7833251953125},
-                                                        {'type': 'leaf', 'data': {'views': ['table_line_details'], 'activeView': 'table_line_details', 'id': '8'}, 'size': 260,
-                                                         'visible': False},
-                                                        {'type': 'leaf', 'data': {'views': ['tables_all_order_header'], 'activeView': 'tables_all_order_header', 'id': '10'},
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_booked_order_by_curr'], 'activeView': 'charts_booked_order_by_curr', 'id': '10'},
                                                          'size': 260, 'visible': False}], 'size': 1787.949951171875}
     __grid_width__ = 1787.949951171875
     __grid_height__ = 777.7833251953125
