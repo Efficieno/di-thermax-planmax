@@ -38,7 +38,7 @@ class PlanningDashboard(Dashboard):
                           metadata={})
     metrics_JZSFQImkw = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="Select(func.count(PlanmaxHeaders.order_intake_status).label('count'))",
+                          query="Select(func.count(PlanmaxHeaders.order_intake_status).label('count')).filter(PlanmaxHeaders.order_intake_status== 'P')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Orders Intake Pending",
                           description="Orders with intake config pending",
