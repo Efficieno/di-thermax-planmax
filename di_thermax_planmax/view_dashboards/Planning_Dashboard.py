@@ -21,7 +21,7 @@ class PlanningDashboard(Dashboard):
                           header="Open Orders by Status",
                           description="Open Orders by Status",
                           columns=[],
-                          chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'bar', 'yAxisIndex': 1}], 'title': {'text': 'Order Status: Count and Value'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'axisLabel': {'rotate': 45}, 'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
+                          chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Order Status: Count and Value'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'axisLabel': {'rotate': 45}, 'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
                           content_component="mediator",
                           relations=[],
                           metadata={})
@@ -32,7 +32,7 @@ class PlanningDashboard(Dashboard):
                           header="Orders by Group",
                           description="Orders by Group",
                           columns=[],
-                          chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'group_name', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'group_name', 'y': 'value'}, 'name': 'Value', 'type': 'bar', 'yAxisIndex': 1}], 'title': {'text': 'Order Status: Count and Value'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'axisLabel': {'rotate': 45}, 'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
+                          chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'group_name', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'group_name', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Order Status: Count and Value'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'axisLabel': {'rotate': 45}, 'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
                           content_component="mediator",
                           relations=[],
                           metadata={})
