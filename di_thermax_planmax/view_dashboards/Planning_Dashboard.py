@@ -33,6 +33,23 @@ class PlanningDashboard(Dashboard):
                           metadata={},
                           drill_downs={0: "PlanmaxHeaders.group_name",
                                        1: "PlanmaxHeaders.sub_group"})
+
+    table_order_header_details = PanelComponent(component_type="tables",
+                                                name="Order Header Details",
+                                                query="Select(PlanMaxHeaders.sales_order_header_id,PlanMaxHeaders.model_line_id,PlanMaxHeaders.otm_header_id,PlanMaxHeaders.product_category,PlanMaxHeaders.region_of_order,PlanMaxHeaders.customer_name,PlanMaxHeaders.sales_order_number,PlanMaxHeaders.project_segment1,PlanMaxHeaders.orig_cust_required_date,PlanMaxHeaders.curr_cust_required_date,PlanMaxHeaders.curr_thx_commitment_date,PlanMaxHeaders.mfg_organization_code,PlanMaxHeaders.std_nstd,PlanMaxHeaders.sos_item,PlanMaxHeaders.product_model,PlanMaxHeaders.ld_applicable,PlanMaxHeaders.order_status,PlanMaxHeaders.wip_folder_release_date,PlanMaxHeaders.mfg_job_folder_status,PlanMaxHeaders.remarks,PlanMaxHeaders.rated_standard_man_hrs,PlanMaxHeaders.reason_for_otp,PlanMaxHeaders.prn_applicable,PlanMaxHeaders.oc_status,PlanMaxHeaders.oc_closure_date,PlanMaxHeaders.plan_eol_mech_date,PlanMaxHeaders.plan_eol_ei_date,PlanMaxHeaders.mfg_commitment_date,PlanMaxHeaders.planner,PlanMaxHeaders.model_line_number,(PlanMaxHeaders.total_unit_value / 100000).label('Total Unit value'),PlanMaxHeaders.order_intake_status,PlanMaxHeaders.prn_creation_status,PlanMaxHeaders.bom_common_status).filter(PlanMaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED'])).filter(PlanMaxHeaders.group_name != 'HO')",
+                                                data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                                header="Order Header Details",
+                                                description="Order Header Details",
+                                                columns=[ColumnProperty(column=OrderHeaders.organization_code, display_name="Org Code"),
+                                                         ColumnProperty(column=OrderHeaders.order_type_id, display_name="Order Type ID", invisible=True),
+                                                         ColumnProperty(column=OrderHeaders.order_number, display_name="Order Number"),
+                                                         ColumnProperty(column=OrderHeaders.version_number, display_name="Version Number")],
+                                                chart_options={},
+                                                content_component="mediator",
+                                                relations=[],
+                                                inline_actions=None,
+                                                actions=[]
+                                                )
     # charts_orders_by_group_bar = PanelComponent(component_type="charts",
     #                       name="Orders by Status",
     #                       query="Select(PlanmaxHeaders.group_name, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value')).group_by(PlanmaxHeaders.group_name)",
