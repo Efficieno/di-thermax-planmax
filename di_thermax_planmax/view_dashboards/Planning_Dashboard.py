@@ -48,6 +48,7 @@ class PlanningDashboard(Dashboard):
     "legend": {
         "orient": "vertical",
         "left": "left",
+        "data": ["DOM", "HO", "EXP"]
     },
     "series": [
         {
