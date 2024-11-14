@@ -76,7 +76,7 @@ class PlanningDashboard(Dashboard):
                                                         ColumnProperty(column=PlanmaxHeaders.mfg_commitment_date),
                                                         ColumnProperty(column=PlanmaxHeaders.planner),            
                                                         ColumnProperty(column=PlanmaxHeaders.model_line_number),
-                                                        ColumnProperty(column=(PlanmaxHeaders.total_unit_value / 100000).label("Total Unit value")),
+                                                        ColumnProperty(column=PlanmaxHeaders.total_unit_value),
                                                         ColumnProperty(column=PlanmaxHeaders.order_intake_status),
                                                         ColumnProperty(column=PlanmaxHeaders.prn_creation_status),
                                                         ColumnProperty(column=PlanmaxHeaders.bom_common_status)],
