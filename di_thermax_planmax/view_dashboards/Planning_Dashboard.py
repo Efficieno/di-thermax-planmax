@@ -8,9 +8,9 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 763.578125}], 'size': 244}, {'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 244.3125}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_orders_by_status'], 'activeView': 'charts_orders_by_status', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_orders_by_group'], 'activeView': 'charts_orders_by_group', 'id': '2'}, 'size': 763.578125}], 'size': 313}, {'type': 'leaf', 'data': {'views': ['metrics_JZSFQImkw'], 'activeView': 'metrics_JZSFQImkw', 'id': '3'}, 'size': 314.0625}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
-    __grid_height__ = 488.3125
+    __grid_height__ = 627.0625
     __grid_orientation__ = "VERTICAL"
     __active_group__ = 3
 
@@ -38,7 +38,7 @@ class PlanningDashboard(Dashboard):
                           metadata={})
     metrics_JZSFQImkw = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="",
+                          query="Select(func.count(PlanmaxHeaders.order_intake_status).label('count'))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Demo Header",
                           description="Demo Description",
@@ -46,4 +46,4 @@ class PlanningDashboard(Dashboard):
                           chart_options={},
                           content_component="mediator",
                           relations=[],
-                          metadata={'display': '1000', 'font_size': '2', 'font_style': ['bold'], 'additional_field_visible': True})
+                          metadata={'additional_field_visible': True, 'display': '1000', 'font_size': '2', 'font_style': ['bold']})
