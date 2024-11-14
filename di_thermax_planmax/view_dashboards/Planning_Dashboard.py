@@ -30,8 +30,8 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[],
                           metadata={},
-                          drill_downs={0: "OrderHeaders.transactional_curr_code",
-                                       1: "OrderHeaders.shipping_method_code"})
+                          drill_downs={0: "PlanmaxHeaders.group_name",
+                                       1: "PlanmaxHeaders.sub_group"})
     charts_orders_by_group_bar = PanelComponent(component_type="charts",
                           name="Orders by Status",
                           query="Select(PlanmaxHeaders.group_name, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value')).group_by(PlanmaxHeaders.group_name)",
