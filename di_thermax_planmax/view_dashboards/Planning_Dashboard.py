@@ -58,7 +58,7 @@ class PlanningDashboard(Dashboard):
                 "value": "value"
             },
             "label": {
-                "show": true,
+                "show": True,
             }
         }
     ]
