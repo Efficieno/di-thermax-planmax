@@ -7,7 +7,7 @@ from di_thermax_planmax.ontologies.order_lines import OrderLines
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.order_lines import OrderLines
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
-from di_thermax_planmax.view_actions.update_order_intake_fields import UpdateOrderIntakeFields
+from di_thermax_planmax.view_actions.update_order_intake_fields import UpdateOrderIntake
 
 
 class PlanningDashboard(Dashboard):
@@ -93,7 +93,7 @@ class PlanningDashboard(Dashboard):
                                                 content_component="mediator",
                                                 relations=[],
                                                 inline_actions=None,
-                                                actions=[]
+                                                actions=["UpdateOrderIntake"]
                                                 )
     # charts_orders_by_group_bar = PanelComponent(component_type="charts",
     #                       name="Orders by Status",
