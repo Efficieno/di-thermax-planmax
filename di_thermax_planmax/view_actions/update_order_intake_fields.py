@@ -9,9 +9,6 @@ class UpdateOrderIntake(Action):
     __action_name__ = "Update Order Intake Fields"
     __action_description__ = "Update Order Intake Fields"
 
-            curr_cust_required_date: dict = None,
-            curr_thx_commitment_date: dict = None,
-
     sales_order_header_id = Parameter(display_name="sales_order_header_id", param_type=None, data_type=Integer, editable=False, show_on_form=True, values=None)
 
     model_line_id = Parameter(display_name="model_line_id", param_type=None, data_type=Integer, editable=False, show_on_form=True, values=None)
