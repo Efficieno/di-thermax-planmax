@@ -37,9 +37,9 @@ class UpdateOrderIntake(Action):
 
     remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
 
-    curr_cust_required_date = Parameter(display_name="Curr Cust Required Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    # curr_cust_required_date = Parameter(display_name="Curr Cust Required Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
 
-    curr_thx_commitment_date = Parameter(display_name="Curr Thx Commitment Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    # curr_thx_commitment_date = Parameter(display_name="Curr Thx Commitment Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
 
 
     @classmethod
