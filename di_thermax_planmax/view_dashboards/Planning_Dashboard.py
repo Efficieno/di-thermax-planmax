@@ -7,6 +7,7 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.view_actions.update_order_intake_fields import UpdateOrderIntake
 
 
 class PlanningDashboard(Dashboard):
@@ -113,7 +114,8 @@ class PlanningDashboard(Dashboard):
                           chart_options={},
                           content_component="mediator",
                           relations=[],
-                          metadata={})
+                          metadata={},
+                          actions=["UpdateOrderIntake"])
     metrics_JZSFQImkw = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="Select(func.count(PlanmaxHeaders.order_intake_status).label('count')).filter(PlanmaxHeaders.order_intake_status== 'P')",
