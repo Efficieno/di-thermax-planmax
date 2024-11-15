@@ -29,7 +29,9 @@ class PlanningDashboard(Dashboard):
                           chart_options={'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]},
                           content_component="mediator",
                           relations=[{'component_name': 'table_order_header_details', 'relation_name': 'Order Header Details', 'relations': [{'destination_class_name': 'PlanmaxHeaders', 'destination_column_name': 'order_status', 'source_class_name': 'PlanmaxHeaders', 'source_column_name': 'order_status'}]}],
-                          metadata={})
+                          metadata={},
+                          drill_downs={0: "PlanmaxHeaders.group_name",
+                                       1: "PlanmaxHeaders.sub_group"})
     metrics_MGiwGCl28 = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="Select(func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.reflection_config_status == 'P')",
@@ -62,7 +64,9 @@ class PlanningDashboard(Dashboard):
                           chart_options={'legend': {'data': ['DOM', 'HO', 'EXP'], 'left': 'left', 'orient': 'vertical'}, 'series': [{'encode': {'itemName': 'group_name', 'value': 'value'}, 'label': {'formatter': '{b}: {c} ({d}%)', 'show': True}, 'radius': '50%', 'type': 'pie'}], 'title': {'left': 'center', 'subtext': 'Value Breakdown', 'text': 'Group Name Distribution'}, 'tooltip': {'formatter': '{b}: {c} ({d}%)', 'trigger': 'item'}},
                           content_component="mediator",
                           relations=[],
-                          metadata={})
+                          metadata={},
+                          drill_downs={0: "PlanmaxHeaders.product_category",
+                                       1: "PlanmaxHeaders.planner"})
     table_order_header_details = PanelComponent(component_type="tables",
                           name="Order Header Details",
                           query="Select(PlanmaxHeaders.sales_order_header_id,PlanmaxHeaders.model_line_id,PlanmaxHeaders.otm_header_id,PlanmaxHeaders.product_category,PlanmaxHeaders.region_of_order,PlanmaxHeaders.group_name, PlanmaxHeaders.sub_group, PlanmaxHeaders.customer_name,PlanmaxHeaders.sales_order_number,PlanmaxHeaders.project_segment1,PlanmaxHeaders.orig_cust_required_date,PlanmaxHeaders.curr_cust_required_date,PlanmaxHeaders.curr_thx_commitment_date,PlanmaxHeaders.mfg_organization_code,PlanmaxHeaders.std_nstd,PlanmaxHeaders.sos_item,PlanmaxHeaders.product_model,PlanmaxHeaders.ld_applicable,PlanmaxHeaders.order_status,PlanmaxHeaders.wip_folder_release_date,PlanmaxHeaders.mfg_job_folder_status,PlanmaxHeaders.rated_standard_man_hrs,PlanmaxHeaders.reason_for_otp,PlanmaxHeaders.prn_applicable,PlanmaxHeaders.oc_status,PlanmaxHeaders.oc_closure_date,PlanmaxHeaders.plan_eol_mech_date,PlanmaxHeaders.plan_eol_ei_date,PlanmaxHeaders.mfg_commitment_date,PlanmaxHeaders.planner,PlanmaxHeaders.model_line_number,PlanmaxHeaders.total_unit_value,PlanmaxHeaders.order_intake_status,PlanmaxHeaders.prn_creation_status,PlanmaxHeaders.bom_common_status).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED'])).filter(PlanmaxHeaders.group_name != 'HO')",
