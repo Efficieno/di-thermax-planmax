@@ -5,6 +5,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
+if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 
 
 class XxplanmaxCalender(ERDBase):
@@ -39,5 +41,6 @@ class XxplanmaxCalender(ERDBase):
     year_end_date: Mapped[str] = mapped_column('year_end_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
 
+    XxplanmaxHeaderDtls_orig_thx_commitment_date: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="XxplanmaxCalender_day_id", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.orig_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.orig_thx_commitment_date]", viewonly=True) 
 
 
