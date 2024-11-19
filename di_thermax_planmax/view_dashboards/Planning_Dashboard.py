@@ -31,8 +31,13 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[{'component_name': 'table_order_header_details', 'relation_name': 'Order Header Details', 'relations': [{'destination_class_name': 'PlanmaxHeaders', 'destination_column_name': 'order_status', 'source_class_name': 'PlanmaxHeaders', 'source_column_name': 'order_status'}]}],
                           metadata={},
-                          drill_downs={0: "PlanmaxHeaders.group_name",
-                                       1: "PlanmaxHeaders.sub_group"})
+                          drill_downs={0: "PlanmaxHeaders.month_name",
+                                       1: "PlanmaxHeaders.group_name",
+                                       2: "PlanmaxHeaders.region_of_order",
+                                       3: "PlanmaxHeaders.product_category",
+                                       4: "PlanmaxHeaders.mfg_organization_code",
+                                       5: "PlanmaxHeaders.planner",
+                                       6: "PlanmaxHeaders.regional_commercial"})
     metrics_MGiwGCl28 = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="Select(func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.reflection_config_status == 'P')",
