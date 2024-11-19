@@ -7,12 +7,14 @@ from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_cust_dtls import XxplanmaxCustDtls
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
+from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_calender import XxplanmaxCalender
 
 
 class PlanmaxHeaders(ERDBase):
     # __table__ = (join(XxplanmaxHeaderDtls, XxplanmaxCustDtls, XxplanmaxHeaderDtls.XxplanmaxCustDtls_site_use_id.expression)
     #              .join(OrgOrganizationDefinitions, XxplanmaxHeaderDtls.OrgOrganizationDefinitions_organization_id.expression))
     __table__ = XxplanmaxHeaderDtls.__table__
+    # __table__ = join(XxplanmaxHeaderDtls, XxplanmaxCalender, )
     __table_properties__ = {"ui_x_pos": 503.13734483912555, "ui_y_pos": 891.5731584714746, "colour": "#F2F3F5"}
 
 
