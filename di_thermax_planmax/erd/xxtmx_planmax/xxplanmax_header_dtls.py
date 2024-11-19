@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     from ..ont.oe_order_headers_all import OeOrderHeadersAll
     from ..xxtmx_planmax.xxplanmax_line_dtls import XxplanmaxLineDtls
     from ..xxtmx_planmax.xxplanmax_line_dtls import XxplanmaxLineDtls
+    from ..xxtmx_planmax.xxplanmax_calender import XxplanmaxCalender
 
 
 class XxplanmaxHeaderDtls(ERDBase):
@@ -205,4 +206,4 @@ class XxplanmaxHeaderDtls(ERDBase):
     XxplanmaxLineDtls_sales_order_header_id: Mapped["XxplanmaxLineDtls"] = relationship(back_populates="XxplanmaxHeaderDtls_sales_order_header_id", primaryjoin="XxplanmaxLineDtls.sales_order_header_id==XxplanmaxHeaderDtls.sales_order_header_id", foreign_keys="[XxplanmaxLineDtls.sales_order_header_id]", viewonly=True)
 
 
-
+    XxplanmaxCalender_day_id: Mapped["XxplanmaxCalender"] = relationship(back_populates="XxplanmaxHeaderDtls_orig_thx_commitment_date", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.orig_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.orig_thx_commitment_date]", viewonly=True) 
