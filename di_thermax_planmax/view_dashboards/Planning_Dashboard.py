@@ -22,7 +22,7 @@ class PlanningDashboard(Dashboard):
 
     charts_orders_by_status = PanelComponent(component_type="charts",
                           name="Orders by Status",
-                          query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr).label('value') / 100000).group_by(PlanmaxHeaders.order_status)",
+                          query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000).label('value')).group_by(PlanmaxHeaders.order_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Open Orders by Status",
                           description="Open Orders by Status",
