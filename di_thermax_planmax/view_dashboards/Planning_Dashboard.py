@@ -110,6 +110,8 @@ class PlanningDashboard(Dashboard):
                             ColumnProperty(column=PlanmaxHeaders.order_intake_status, display_name="order_intake_status"),
                             ColumnProperty(column=PlanmaxHeaders.prn_creation_status, display_name="prn_creation_status"),
                             ColumnProperty(column=PlanmaxHeaders.bom_common_status, display_name="bom_common_status"),
+                            ColumnProperty(column=PlanmaxHeaders.month_name, display_name="month_name"),
+                            ColumnProperty(column=PlanmaxHeaders.quarter_name, display_name="quarter_name"),
                           ],
                           chart_options={},
                           content_component="mediator",
