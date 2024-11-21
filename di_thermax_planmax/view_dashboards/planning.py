@@ -25,14 +25,14 @@ class Planning(Dashboard):
                           content_component="mediator",
                           relations=[{"component_name": "tables_UOdbwrgzB",
                                        "relation_name": "Rolling Plan",
-                                       "relations": [{"source_class_name": "PlanmaxHeaders",
+                                       "relations": [{"source_class_name": None,
                                                       "source_column_name": "order_status",
                                                       "destination_class_name": "PlanmaxHeaders",
                                                       "destination_column_name": "order_status"}]
                                       },
                                     {"component_name": "tables_X21l_Bolp",
                                        "relation_name": "Master Plan",
-                                       "relations": [{"source_class_name": "PlanmaxHeaders",
+                                       "relations": [{"source_class_name": None,
                                                       "source_column_name": "order_status",
                                                       "destination_class_name": "PlanmaxHeaders",
                                                       "destination_column_name": "order_status"}]
