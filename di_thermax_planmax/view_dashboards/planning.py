@@ -23,7 +23,71 @@ class Planning(Dashboard):
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'title': {'text': 'Order Information', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': {'show': True, 'type': 'category', 'name': ''}, 'yAxis': {'show': True, 'type': 'value', 'name': ''}, 'series': [{'name': '', 'type': 'bar', 'encode': {'x': 'order_status', 'y': 'count', 'value': '', 'itemName': ''}, 'datasetIndex': None}, {'name': '', 'type': 'line', 'encode': {'x': 'order_status', 'y': 'value', 'value': '', 'itemName': ''}, 'datasetIndex': None}]}},
+                          metadata={
+   "chartOptions":{
+      "title":{
+         "text":"Order Information",
+         "subtext":"",
+         "left":"left",
+         "top":"top"
+      },
+      "tooltip":{
+         "show":True,
+         "trigger":"item",
+         "formatter":""
+      },
+      "legend":{
+         "show":true,
+         "orient":"horizontal",
+         "left":"center",
+         "data":[
+            
+         ]
+      },
+      "xAxis":{
+         "show":true,
+         "type":"category",
+         "name":""
+      },
+      "yAxis":[
+      {
+         "name":"Count",
+         "position":"left",
+         "type":"value"
+      },
+      {
+         "name":"Value",
+         "position":"right",
+         "type":"value"
+      }
+   ],
+      "series":[
+         {
+            "name":"",
+            "type":"bar",
+            "encode":{
+               "x":"order_status",
+               "y":"count",
+               "value":"",
+               "itemName":""
+            },
+            "datasetIndex":"None"
+         },
+         {
+            "name":"",
+            "type":"line",
+            "encode":{
+               "x":"order_status",
+               "y":"value",
+               "value":"",
+               "itemName":""
+            },
+            "datasetIndex":"None"
+         }
+      ]
+   }
+},
+,
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
