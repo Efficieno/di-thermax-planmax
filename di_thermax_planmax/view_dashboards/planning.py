@@ -11,7 +11,7 @@ class Planning(Dashboard):
     __dashboard_name__ = "planning"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 763.578125}], 'size': 232}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB'], 'activeView': 'tables_UOdbwrgzB', 'id': '3'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['tables_X21l_Bolp'], 'activeView': 'tables_X21l_Bolp', 'id': '4'}, 'size': 763.578125}], 'size': 232}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 233.375}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 348}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB'], 'activeView': 'tables_UOdbwrgzB', 'id': '3'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['tables_X21l_Bolp'], 'activeView': 'tables_X21l_Bolp', 'id': '4'}, 'size': 763.578125}], 'size': 349.375}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 697.375
     __grid_orientation__ = "VERTICAL"
