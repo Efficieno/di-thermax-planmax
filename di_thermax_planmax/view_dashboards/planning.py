@@ -60,7 +60,13 @@ class Planning(Dashboard):
                           header="Order Intake",
                           description="Demo Description",
                           content_component="mediator",
-                          relations=[],
+                          relations=[{'component_name': 'tables_DcGxdVJ2x', 'relation_name': 'Order Intake Details', 
+                                       'relations': [{'destination_class_name': None, 
+                                                      'destination_column_name': 'order_intake_status', 
+                                                      'source_class_name': None, 
+                                                      'source_column_name': 'order_intake_status'}
+                                                    ]
+                                      }],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
                           drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
