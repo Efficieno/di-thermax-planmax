@@ -8,7 +8,7 @@ class Planning(Dashboard):
     __dashboard_name__ = "planning"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 348}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 349.375}], 'size': 1786.09375}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 893}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 893.09375}], 'size': 697.375}], 'size': 1786.09375}
     __grid_width__ = 1786.09375
     __grid_height__ = 697.375
     __grid_orientation__ = "VERTICAL"
@@ -35,9 +35,8 @@ class Planning(Dashboard):
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'title': {'text': '', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': ['P', 'C', 'NA']}, 'xAxis': {'show': False, 'type': 'category', 'name': ''}, 'yAxis': {'show': False, 'type': 'value', 'name': ''}, 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'prn_creation_status'}, 'datasetIndex': 0}]}},
-                          drill_downs={'0': {"name": "Product Category",
-                                            "value": "PlanmaxHeaders.product_category"}},
+                          metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': '', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
+                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
