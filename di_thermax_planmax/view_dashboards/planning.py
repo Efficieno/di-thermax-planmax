@@ -87,7 +87,20 @@ class Planning(Dashboard):
       ]
    }
 },
-                          drill_downs={},
+                          drill_downs={0: {"name": "Month",
+                                          "value": "PlanmaxHeaders.month_name"},
+                                       1: {"name": "Group",
+                                          "value": "PlanmaxHeaders.group_name"},
+                                       2: {"name": "Region",
+                                          "value": "PlanmaxHeaders.region_of_order"},
+                                       3: {"name": "Product Category",
+                                          "value": "PlanmaxHeaders.product_category"},
+                                       4: {"name": "MFG Organization",
+                                          "value": "PlanmaxHeaders.mfg_organization_code"},
+                                       5: {"name": "Planner",
+                                          "value": "PlanmaxHeaders.planner"},
+                                       6: {"name": "Regional Commercial",
+                                          "value": "PlanmaxHeaders.regional_commercial"}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
