@@ -36,7 +36,8 @@ class Planning(Dashboard):
                           content_component="mediator",
                           relations=[],
                           metadata={'chartOptions': {'title': {'text': '', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': ['P', 'C', 'NA']}, 'xAxis': {'show': False, 'type': 'category', 'name': ''}, 'yAxis': {'show': False, 'type': 'value', 'name': ''}, 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'prn_creation_status'}, 'datasetIndex': 0}]}},
-                          drill_downs={},
+                          drill_downs={'0': {"name": "Product Category",
+                                            "value": "PlanmaxHeaders.product_category"}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
