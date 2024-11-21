@@ -17,13 +17,26 @@ class Planning(Dashboard):
     __active_group__ = 4
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
-                          name="Demo Header",
+                          name="Order Info Chart",
                           query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000).label('value')).group_by(PlanmaxHeaders.order_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Order Information",
-                          description="Demo Description",
+                          description="Order Information",
                           content_component="mediator",
-                          relations=[],
+                          relations=[{"component_name": "tables_UOdbwrgzB",
+                                       "relation_name": "Rolling Plan",
+                                       "relations": [{"source_class_name": "PlanmaxHeaders",
+                                                      "source_column_name": "order_status",
+                                                      "destination_class_name": "PlanmaxHeaders",
+                                                      "destination_column_name": "order_status"}]
+                                      },
+                                    {"component_name": "tables_X21l_Bolp",
+                                       "relation_name": "Master Plan",
+                                       "relations": [{"source_class_name": "PlanmaxHeaders",
+                                                      "source_column_name": "order_status",
+                                                      "destination_class_name": "PlanmaxHeaders",
+                                                      "destination_column_name": "order_status"}]
+                                      }],
                           metadata={'chartOptions': {'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]}},
                           drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
@@ -43,7 +56,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     tables_UOdbwrgzB = PanelComponent(component_type="tables",
-                          name="Demo Header",
+                          name="Rolling Plan",
                           query="Select(PlanmaxHeaders.sales_order_number, PlanmaxHeaders.project_segment1, PlanmaxHeaders.customer_name, (PlanmaxHeaders.total_unit_value_in_inr/ 100000).label('total_unit_value_in_inr_lkh'), (PlanmaxHeaders.invoiced_value/ 100000).label('invoiced_value_lkh'), PlanmaxHeaders.curr_cust_required_date,PlanmaxHeaders.curr_thx_commitment_date,PlanmaxHeaders.hdr_booked_date,PlanmaxHeaders.prn_approved_date,PlanmaxHeaders.prn_creation_status,PlanmaxHeaders.di_date,PlanmaxHeaders.fuel, PlanmaxHeaders.special_instructions,PlanmaxHeaders.std_nstd, PlanmaxHeaders.ld_applicable,PlanmaxHeaders.group_name, PlanmaxHeaders.sub_group,PlanmaxHeaders.product_category, PlanmaxHeaders.region_of_order,PlanmaxHeaders.product_model, PlanmaxHeaders.pressure,PlanmaxHeaders.mfg_organization_id, PlanmaxHeaders.mfg_organization_code,PlanmaxHeaders.order_currency, (PlanmaxHeaders.total_unit_value / 100000).label('total_unit_value_lkh'),PlanmaxHeaders.freight_pay,PlanmaxHeaders.inco_terms,PlanmaxHeaders.orig_cust_required_date,PlanmaxHeaders.orig_thx_commitment_date,PlanmaxHeaders.planner,PlanmaxHeaders.regional_commercial,PlanmaxHeaders.sales_order_header_id,PlanmaxHeaders.model_line_number,PlanmaxHeaders.model_line_id,PlanmaxHeaders.otm_header_id,PlanmaxHeaders.order_status).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Rolling Plan",
@@ -56,7 +69,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     tables_X21l_Bolp = PanelComponent(component_type="tables",
-                          name="Demo Header",
+                          name="Master Plan",
                           query="Select(PlanmaxHeaders.region_of_order,PlanmaxHeaders.group_name,PlanmaxHeaders.sub_group,PlanmaxHeaders.product_category,PlanmaxHeaders.project_segment1,PlanmaxHeaders.hdr_order_type,PlanmaxHeaders.sales_order_header_id,PlanmaxHeaders.sales_order_number,PlanmaxHeaders.model_line_id,PlanmaxHeaders.model_line_number,PlanmaxHeaders.ordered_date,PlanmaxHeaders.hdr_booked_date,PlanmaxHeaders.customer_name,PlanmaxHeaders.otm_tech_ocl_no,PlanmaxHeaders.product_model,PlanmaxHeaders.fuel,PlanmaxHeaders.special_instructions,PlanmaxHeaders.order_currency,(PlanmaxHeaders.total_unit_value / 100000).label('total_unit_value_lkh'),PlanmaxHeaders.conversion_rate,(PlanmaxHeaders.total_unit_value_in_inr / 100000).label('total_unit_value_in_inr_lkh'),PlanmaxHeaders.orig_cust_required_date,PlanmaxHeaders.curr_cust_required_date,PlanmaxHeaders.orig_thx_commitment_date,PlanmaxHeaders.curr_thx_commitment_date,PlanmaxHeaders.freight_pay,PlanmaxHeaders.inco_terms,PlanmaxHeaders.abp_percent,PlanmaxHeaders.pgb_percent,PlanmaxHeaders.bonus,PlanmaxHeaders.ld_applicable,PlanmaxHeaders.penalty,PlanmaxHeaders.insurance_by,PlanmaxHeaders.inspection_required,PlanmaxHeaders.ho_order_commited_to,PlanmaxHeaders.ho_order_so_header,PlanmaxHeaders.ho_order_so_line,PlanmaxHeaders.planner,PlanmaxHeaders.regional_commercial,PlanmaxHeaders.tca,PlanmaxHeaders.sales_engineer,PlanmaxHeaders.actual_fg_date,PlanmaxHeaders.prn_applicable,PlanmaxHeaders.prn_number,PlanmaxHeaders.prn_approved_date,PlanmaxHeaders.prn_customer_dely_date,PlanmaxHeaders.prn_revised_dely_reqd_date,PlanmaxHeaders.mfg_organization_code,PlanmaxHeaders.std_nstd,PlanmaxHeaders.oc_required,PlanmaxHeaders.oc_no,PlanmaxHeaders.oc_date,PlanmaxHeaders.tech_clarity_date,PlanmaxHeaders.engg_commt_dt,PlanmaxHeaders.oc_status,PlanmaxHeaders.oc_closure_date,PlanmaxHeaders.sos_item,PlanmaxHeaders.sos_en1_revision,PlanmaxHeaders.sos_mfg_revision,PlanmaxHeaders.sos_revision_date,PlanmaxHeaders.mfg_commitment_date,PlanmaxHeaders.plan_eol_mech_date,PlanmaxHeaders.plan_eol_ei_date,PlanmaxHeaders.shell_boiler_appr_auth,PlanmaxHeaders.wip_folder_release_date,PlanmaxHeaders.di_number,PlanmaxHeaders.di_date,(PlanmaxHeaders.di_value / 100000).label('di_value_lkh'),PlanmaxHeaders.di_transportation_scope,PlanmaxHeaders.planned_invoice_dates,PlanmaxHeaders.last_invoice_no,PlanmaxHeaders.last_invoice_date,(PlanmaxHeaders.invoiced_value / 100000).label('invoiced_value_lkh'),PlanmaxHeaders.contractual_plan_otp,PlanmaxHeaders.reason_for_otp,PlanmaxHeaders.delivery_otp,PlanmaxHeaders.commissioning_date,PlanmaxHeaders.site_release_date,PlanmaxHeaders.rated_standard_man_hrs,PlanmaxHeaders.order_intake_status,PlanmaxHeaders.bom_common_status,PlanmaxHeaders.reflection_config_status,PlanmaxHeaders.mat_planning_status,PlanmaxHeaders.sourcing_status,PlanmaxHeaders.commit_dates_status_mfg,PlanmaxHeaders.commit_dates_status_mat,PlanmaxHeaders.mfg_job_folder_status,PlanmaxHeaders.prn_creation_status,PlanmaxHeaders.eol_mat_avail_status,PlanmaxHeaders.wip_pur_mat_status ,PlanmaxHeaders.order_status,PlanmaxHeaders.otm_header_id,PlanmaxHeaders.ordered_item).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'ENTERED', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Master Plan",
