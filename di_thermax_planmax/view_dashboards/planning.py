@@ -21,7 +21,55 @@ class Planning(Dashboard):
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'month_name', 'value': '', 'x': 'month_name', 'y': 'count'}, 'name': '', 'type': 'bar'}, {'datasetIndex': None, 'encode': {'itemName': 'month_name', 'value': '', 'x': 'month_name', 'y': 'value'}, 'name': '', 'type': 'line'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Information', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': True, 'type': 'category'}, 'yAxis': [{'name': 'count', 'position': 'left', 'type': 'value'}, {'name': 'value', 'position': 'right', 'type': 'value'}]}},
+                          metadata={'chartOptions': {
+   "legend":{
+      "data":[
+         "Count",
+         "Value"
+      ]
+   },
+   "series":[
+      {
+         "encode":{
+            "x":"order_status",
+            "y":"count"
+         },
+         "name":"Count",
+         "type":"bar",
+         "yAxisIndex":0
+      },
+      {
+         "encode":{
+            "x":"order_status",
+            "y":"value"
+         },
+         "name":"Value",
+         "type":"line",
+         "yAxisIndex":1
+      }
+   ],
+   "title":{
+      "text":"Orders by Status"
+   },
+   "tooltip":{
+      "trigger":"axis"
+   },
+   "xAxis":{
+      "type":"category"
+   },
+   "yAxis":[
+      {
+         "name":"Count",
+         "position":"left",
+         "type":"value"
+      },
+      {
+         "name":"Value",
+         "position":"right",
+         "type":"value"
+      }
+   ]
+}},
                           drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
