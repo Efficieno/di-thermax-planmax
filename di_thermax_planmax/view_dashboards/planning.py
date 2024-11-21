@@ -27,14 +27,14 @@ class Planning(Dashboard):
                                        "relation_name": "Rolling Plan",
                                        "relations": [{"source_class_name": None,
                                                       "source_column_name": "order_status",
-                                                      "destination_class_name": "PlanmaxHeaders",
+                                                      "destination_class_name": None,
                                                       "destination_column_name": "order_status"}]
                                       },
                                     {"component_name": "tables_X21l_Bolp",
                                        "relation_name": "Master Plan",
                                        "relations": [{"source_class_name": None,
                                                       "source_column_name": "order_status",
-                                                      "destination_class_name": "PlanmaxHeaders",
+                                                      "destination_class_name": None,
                                                       "destination_column_name": "order_status"}]
                                       }],
                           metadata={'chartOptions': {'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': {'type': 'category'}, 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]}},
