@@ -87,7 +87,6 @@ class Planning(Dashboard):
       ]
    }
 },
-,
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
