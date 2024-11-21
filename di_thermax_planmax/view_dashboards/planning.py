@@ -5,17 +5,18 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 
 
 class Planning(Dashboard):
     __dashboard_name__ = "planning"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 348}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB'], 'activeView': 'tables_UOdbwrgzB', 'id': '3'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['tables_X21l_Bolp'], 'activeView': 'tables_X21l_Bolp', 'id': '4'}, 'size': 763.578125}], 'size': 349.375}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 232}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB'], 'activeView': 'tables_UOdbwrgzB', 'id': '3'}, 'size': 763}, {'type': 'leaf', 'data': {'views': ['tables_X21l_Bolp'], 'activeView': 'tables_X21l_Bolp', 'id': '4'}, 'size': 763.578125}], 'size': 232}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 233.375}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 697.375
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 2
+    __active_group__ = 6
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -40,6 +41,19 @@ class Planning(Dashboard):
                           relations=[],
                           metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'PRN Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
                           drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    charts_6oVivWQha = PanelComponent(component_type="charts",
+                          name="Demo Header",
+                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.order_intake_status)",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="Order Intake",
+                          description="Demo Description",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
+                          drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
@@ -69,15 +83,15 @@ class Planning(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    charts_6oVivWQha = PanelComponent(component_type="charts",
+    charts_JH9qfdbAn = PanelComponent(component_type="charts",
                           name="Demo Header",
-                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.order_intake_status)",
+                          query="Select(PlanmaxHeaders.mat_planning_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.prn_creation_status == 'C').group_by(PlanmaxHeaders.mat_planning_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="Order Intake",
+                          header="DRP Status",
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'title': {'text': 'Order Intake', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': {'show': False, 'type': 'category', 'name': ''}, 'yAxis': {'show': False, 'type': 'value', 'name': ''}, 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'order_intake_status'}, 'datasetIndex': None}]}},
+                          metadata={'chartOptions': {'title': {'text': 'DRP Status', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': {'show': False, 'type': 'category', 'name': ''}, 'yAxis': {'show': False, 'type': 'value', 'name': ''}, 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'mat_planning_status'}, 'datasetIndex': None}]}},
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
