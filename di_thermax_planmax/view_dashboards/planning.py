@@ -41,7 +41,13 @@ class Planning(Dashboard):
                           header="PRN Status",
                           description="Demo Description",
                           content_component="mediator",
-                          relations=[],
+                          relations=[{'component_name': 'tables_M4mK5COb0', 'relation_name': 'PRN Details', 
+                                       'relations': [{'destination_class_name': None, 
+                                                      'destination_column_name': 'prn_creation_status', 
+                                                      'source_class_name': None, 
+                                                      'source_column_name': 'prn_creation_status'}
+                                                    ]
+                                      }],
                           metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'PRN Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
                           drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
