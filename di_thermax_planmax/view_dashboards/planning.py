@@ -113,7 +113,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     tables_WLKF5mgCy = PanelComponent(component_type="tables",
-                          name="Demo Header",
+                          name="DRP Status",
                           query="Select(PlanmaxHeaders.mfg_organization_code,PlanmaxHeaders.sales_order_number,PlanmaxHeaders.project_segment1,PlanmaxHeaders.customer_name,PlanmaxHeaders.curr_cust_required_date,PlanmaxHeaders.mat_planning_status,PlanmaxHeaders.order_intake_status,PlanmaxHeaders.bom_common_status,PlanmaxHeaders.reflection_config_status,PlanmaxHeaders.std_nstd,PlanmaxHeaders.product_category,PlanmaxHeaders.product_model,PlanmaxHeaders.hdr_booked_date,PlanmaxHeaders.orig_cust_required_date,PlanmaxHeaders.orig_thx_commitment_date,PlanmaxHeaders.curr_thx_commitment_date,PlanmaxHeaders.prn_status,PlanmaxHeaders.sos_item,PlanmaxHeaders.invoiced_value,PlanmaxHeaders.order_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="DRP Status",
@@ -132,7 +132,13 @@ class Planning(Dashboard):
                           header="DRP Status",
                           description="Demo Description",
                           content_component="mediator",
-                          relations=[],
+                          relations=[{'component_name': 'tables_WLKF5mgCy', 'relation_name': 'DRP Details', 
+                                       'relations': [{'destination_class_name': None, 
+                                                      'destination_column_name': 'mat_planning_status', 
+                                                      'source_class_name': None, 
+                                                      'source_column_name': 'mat_planning_status'}
+                                                    ]
+                                      }],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'mat_planning_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'DRP Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
                           drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
