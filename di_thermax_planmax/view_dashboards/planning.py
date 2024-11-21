@@ -35,7 +35,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     charts_hL_B6ejVG = PanelComponent(component_type="charts",
-                          name="Demo Header",
+                          name="PRN Status",
                           query="Select(PlanmaxHeaders.prn_creation_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.prn_creation_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="PRN Status",
@@ -48,7 +48,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     charts_6oVivWQha = PanelComponent(component_type="charts",
-                          name="Demo Header",
+                          name="Order Intake",
                           query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.order_intake_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Order Intake",
@@ -56,7 +56,7 @@ class Planning(Dashboard):
                           content_component="mediator",
                           relations=[],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
-                          drill_downs={},
+                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
@@ -126,7 +126,7 @@ class Planning(Dashboard):
                           inline_actions={'name': '', 'value': ''},
                           details=[])
     charts_JH9qfdbAn = PanelComponent(component_type="charts",
-                          name="Demo Header",
+                          name="DRP Status",
                           query="Select(PlanmaxHeaders.mat_planning_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.prn_creation_status == 'C').group_by(PlanmaxHeaders.mat_planning_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="DRP Status",
@@ -134,7 +134,7 @@ class Planning(Dashboard):
                           content_component="mediator",
                           relations=[],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'mat_planning_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'DRP Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
-                          drill_downs={},
+                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
