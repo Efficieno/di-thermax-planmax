@@ -1,4 +1,5 @@
-from efficieno.components.dashboard_objects import PanelComponent, Dashboard, ColumnProperty
+from efficieno.components.dashboard_objects import PanelComponent, Dashboard, ColumnProperty, FilterField, FilterComponent
+from sqlalchemy import Integer, Select, bindparam, String
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.order_lines import OrderLines
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
