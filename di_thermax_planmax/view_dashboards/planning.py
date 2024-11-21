@@ -15,7 +15,7 @@ class Planning(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 697.375
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 5
+    __active_group__ = 2
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -38,7 +38,7 @@ class Planning(Dashboard):
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': '', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
+                          metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'PRN Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': {'name': '', 'show': False, 'type': 'category'}, 'yAxis': {'name': '', 'show': False, 'type': 'value'}}},
                           drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
