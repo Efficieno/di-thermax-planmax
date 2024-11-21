@@ -15,8 +15,8 @@ class Planning(Dashboard):
     __dashboard_name__ = "planning"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 348}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_WLKF5mgCy', 'id': '3'}, 'size': 1183}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 343.578125}], 'size': 349.375}], 'size': 1526.578125}
-    __grid_width__ = 1526.578125
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 753}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 571}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 462.09375}], 'size': 348}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_WLKF5mgCy', 'id': '3'}, 'size': 1384}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 402.09375}], 'size': 349.375}], 'size': 1786.09375}
+    __grid_width__ = 1786.09375
     __grid_height__ = 697.375
     __grid_orientation__ = "VERTICAL"
     __active_group__ = 3
