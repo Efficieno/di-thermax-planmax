@@ -37,7 +37,7 @@ class Planning(Dashboard):
          "formatter":""
       },
       "legend":{
-         "show":true,
+         "show":True,
          "orient":"horizontal",
          "left":"center",
          "data":[
@@ -45,7 +45,7 @@ class Planning(Dashboard):
          ]
       },
       "xAxis":{
-         "show":true,
+         "show":True,
          "type":"category",
          "name":""
       },
