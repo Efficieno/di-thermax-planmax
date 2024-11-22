@@ -9,6 +9,7 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.view_actions.update_order_intake_fields import UpdateOrderIntake
 
 
 class PlanningDashboard(Dashboard):
