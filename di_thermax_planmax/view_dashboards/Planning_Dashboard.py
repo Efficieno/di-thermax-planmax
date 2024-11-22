@@ -45,7 +45,7 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[{'component_name': 'tables_M4mK5COb0', 'relation_name': 'PRN Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'prn_creation_status', 'source_class_name': None, 'source_column_name': 'prn_creation_status'}]}],
                           metadata={'chartOptions': {'legend': {'data': ['P', 'C', 'NA'], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': 0, 'encode': {'itemName': 'prn_creation_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'PRN Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
-                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
+                          drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
@@ -58,7 +58,7 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[{'component_name': 'tables_DcGxdVJ2x', 'relation_name': 'Order Intake Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'order_intake_status', 'source_class_name': None, 'source_column_name': 'order_intake_status'}]}],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
-                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
+                          drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
@@ -136,7 +136,7 @@ class PlanningDashboard(Dashboard):
                           content_component="mediator",
                           relations=[{'component_name': 'tables_WLKF5mgCy', 'relation_name': 'DRP Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'mat_planning_status', 'source_class_name': None, 'source_column_name': 'mat_planning_status'}]}],
                           metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'mat_planning_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'DRP Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
-                          drill_downs={'0': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}},
+                          drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
