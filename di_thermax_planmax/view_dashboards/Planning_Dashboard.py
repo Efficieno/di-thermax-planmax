@@ -25,7 +25,7 @@ class PlanningDashboard(Dashboard):
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
-                          query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000).label('value')).filter(PlanmaxHeaders.order_status != 'CANCELLED').group_by(PlanmaxHeaders.order_status)",
+                          query="Select(PlanmaxHeaders.order_status, func.count(PlanmaxHeaders.sales_order_header_id).label('count'), func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value')).filter(PlanmaxHeaders.order_status != 'CANCELLED').group_by(PlanmaxHeaders.order_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Order Information",
                           description="Order Information",
