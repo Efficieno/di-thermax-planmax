@@ -38,7 +38,7 @@ class PlanningDashboard(Dashboard):
                           details=[])
     charts_hL_B6ejVG = PanelComponent(component_type="charts",
                           name="PRN Status",
-                          query="Select(PlanmaxHeaders.prn_creation_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.prn_creation_status)",
+                          query="Select(PlanmaxHeaders.prn_creation_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.prn_creation_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="PRN Status",
                           description="Demo Description",
