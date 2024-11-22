@@ -89,20 +89,22 @@ class UpdateOrderFields(Action):
                             )
 
   
-    product_model: str = None,
-    ld_applicable: str = None,
-    # manual_order_status: str = None,
-    wip_folder_release_date: dict = None,
-    remarks: str = None,
-    product_category: str = None,
-    rated_standard_man_hrs: str = None, 
-    reason_for_otp: str = None, 
-    prn_applicable: str = None,
-    oc_status: str = None,
-    oc_closure_date: dict = None,
-    plan_eol_mech_date: dict = None,
-    plan_eol_ei_date: dict = None,
-    mfg_commitment_date: dict = None,
+    product_model = Parameter(display_name="Product Model", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    ld_applicable = Parameter(display_name="LD Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    
+    wip_folder_release_date = Parameter(display_name="WIP Folder Release Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+
+    product_category = Parameter(display_name="Product Category", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    
+    rated_standard_man_hrs = Parameter(display_name="RSMH", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    reason_for_otp = Parameter(display_name="Reason for OTP", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    prn_applicable = Parameter(display_name="PRN Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    oc_status = Parameter(display_name="OC Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    oc_closure_date = Parameter(display_name="OC Closure Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    plan_eol_mech_date = Parameter(display_name="Planned EOL Mech Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    plan_eol_ei_date = Parameter(display_name="Planned EOL EI Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
+    mfg_commitment_date = Parameter(display_name="MFG Commitment Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
   
     oc_number = Parameter(display_name="OC Number", param_type=None, data_type=Integer, editable=True, show_on_form=True, values=None)
 
