@@ -141,7 +141,7 @@ class PlanningDashboard(Dashboard):
                           details=[])
     charts_DrkoURGFu = PanelComponent(component_type="charts",
                           name="Demo Header",
-                          query="Select(PlanmaxHeaders.bom_common_status, func.count(PlanmaxHeaders.bom_common_status).label('count')).filter(PlanmaxHeaders.order_status.in_(["OPEN"])).filter(PlanmaxHeaders.std_nstd == "NSTD").filter(PlanmaxHeaders.group_name != "HO").group_by(PlanmaxHeaders.bom_common_status)",
+                          query="Select(PlanmaxHeaders.bom_common_status, func.count(PlanmaxHeaders.bom_common_status).label('count')).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.std_nstd == 'NSTD').filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.bom_common_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="BOM Common Status",
                           description="Demo Description",
