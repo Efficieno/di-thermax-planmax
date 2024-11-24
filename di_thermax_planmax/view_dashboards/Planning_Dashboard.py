@@ -10,17 +10,18 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 
 
 class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 372}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_WLKF5mgCy', 'id': '3'}, 'size': 508}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '4'}, 'size': 508}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 510.578125}], 'size': 373.46875}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 644}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 488}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 394.578125}], 'size': 248}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_WLKF5mgCy', 'id': '3'}, 'size': 508}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '4'}, 'size': 508}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 510.578125}], 'size': 248}, {'type': 'leaf', 'data': {'views': ['charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '7'}, 'size': 249.46875}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 4
+    __active_group__ = 7
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -126,6 +127,19 @@ class PlanningDashboard(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
+    charts_DrkoURGFu = PanelComponent(component_type="charts",
+                          name="Demo Header",
+                          query="Select(PlanmaxHeaders.bom_common_status, func.count(PlanmaxHeaders.bom_common_status).label('count')).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.std_nstd == 'NSTD').filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.bom_common_status)",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="BOM Common Status",
+                          description="Demo Description",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': False}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'bom_common_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie', 'xAxisIndex': 0, 'yAxisIndex': 0}], 'title': {'left': 'left', 'subtext': '', 'text': 'BOM Common Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [], 'yAxis': []}},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
     charts_JH9qfdbAn = PanelComponent(component_type="charts",
                           name="DRP Status",
                           query="Select(PlanmaxHeaders.mat_planning_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.prn_creation_status == 'C').group_by(PlanmaxHeaders.mat_planning_status)",
@@ -139,15 +153,15 @@ class PlanningDashboard(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    charts_DrkoURGFu = PanelComponent(component_type="charts",
+    charts_RR_PiQv2I = PanelComponent(component_type="charts",
                           name="Demo Header",
-                          query="Select(PlanmaxHeaders.bom_common_status, func.count(PlanmaxHeaders.bom_common_status).label('count')).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.std_nstd == 'NSTD').filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.bom_common_status)",
+                          query="Select(PlanmaxHeaders.reflection_config_status, func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.prn_creation_status.in_(['C', 'NA'])).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.reflection_config_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="BOM Common Status",
+                          header="Pending Reflection",
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'title': {'text': 'BOM Common Status', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': False, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': [], 'yAxis': [], 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'bom_common_status'}, 'xAxisIndex': 0, 'yAxisIndex': 0, 'datasetIndex': None}]}},
+                          metadata={'chartOptions': {'title': {'text': 'Pending Reflection', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': [], 'yAxis': [], 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'reflection_config_status'}, 'xAxisIndex': 0, 'yAxisIndex': 0, 'datasetIndex': None}]}},
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
