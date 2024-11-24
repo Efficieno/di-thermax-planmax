@@ -21,7 +21,7 @@ class PlanningDashboard(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 7
+    __active_group__ = 1
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -31,7 +31,7 @@ class PlanningDashboard(Dashboard):
                           description="Order Information",
                           content_component="mediator",
                           relations=[{'component_name': 'tables_UOdbwrgzB', 'relation_name': 'Rolling Plan', 'relations': [{'destination_class_name': None, 'destination_column_name': 'order_status', 'source_class_name': None, 'source_column_name': 'order_status'}]}, {'component_name': 'tables_X21l_Bolp', 'relation_name': 'Master Plan', 'relations': [{'destination_class_name': None, 'destination_column_name': 'order_status', 'source_class_name': None, 'source_column_name': 'order_status'}]}],
-                          metadata={'chartOptions': {'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'order_status', 'y': 'count'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'order_status', 'y': 'value'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': [{'type': 'category'}], 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]}},
+                          metadata={'chartOptions': {'legend': {'data': ['Count', 'Value']}, 'series': [{'encode': {'x': 'month_name', 'y': 'count', 'itemName': 'month_name'}, 'name': 'Count', 'type': 'bar', 'yAxisIndex': 0}, {'encode': {'x': 'month_name', 'y': 'value', 'itemName': 'month_name'}, 'name': 'Value', 'type': 'line', 'yAxisIndex': 1}], 'title': {'text': 'Orders by Status'}, 'tooltip': {'trigger': 'axis'}, 'xAxis': [{'type': 'category'}], 'yAxis': [{'name': 'Count', 'position': 'left', 'type': 'value'}, {'name': 'Value', 'position': 'right', 'type': 'value'}]}},
                           drill_downs={'0': {'name': 'Month', 'order_by': {'column': "func.to_date(PlanmaxHeaders.month_name, 'MON-YY')", 'order': 'asc'}, 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
