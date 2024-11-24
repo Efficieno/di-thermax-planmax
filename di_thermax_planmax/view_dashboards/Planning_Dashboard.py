@@ -21,7 +21,7 @@ class PlanningDashboard(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 8
+    __active_group__ = 7
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -92,11 +92,11 @@ class PlanningDashboard(Dashboard):
                           name="Demo Header",
                           query="Select(PlanmaxHeaders.reflection_config_status, func.count(PlanmaxHeaders.reflection_config_status).label('count')).filter(PlanmaxHeaders.prn_creation_status.in_(['C', 'NA'])).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.reflection_config_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="Pending Reflection",
+                          header="BOM Reflection",
                           description="Demo Description",
                           content_component="mediator",
                           relations=[],
-                          metadata={'chartOptions': {'title': {'text': 'Pending Reflection', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': [], 'yAxis': [], 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'reflection_config_status'}, 'xAxisIndex': 0, 'yAxisIndex': 0, 'datasetIndex': None}]}},
+                          metadata={'chartOptions': {'title': {'text': 'BOM Reflection', 'subtext': '', 'left': 'left', 'top': 'top'}, 'tooltip': {'show': True, 'trigger': 'item', 'formatter': ''}, 'legend': {'show': True, 'orient': 'horizontal', 'left': 'center', 'data': []}, 'xAxis': [], 'yAxis': [], 'series': [{'name': '', 'type': 'pie', 'encode': {'x': '', 'y': '', 'value': 'count', 'itemName': 'reflection_config_status'}, 'xAxisIndex': 0, 'yAxisIndex': 0, 'datasetIndex': None}]}},
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
