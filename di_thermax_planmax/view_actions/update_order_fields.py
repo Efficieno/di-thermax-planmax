@@ -85,7 +85,8 @@ class UpdateOrderFields(Action):
                             data_type=String,
                             editable=True,
                             show_on_form=True,
-                            values=Select(MtlSystemItemsB.segment1.label("label"), MtlSystemItemsB.segment1.label("value")).filter(MtlSystemItemsB.organization_id == bindparam("mfg_organization_code"))
+                            values=None
+                            # values=Select(MtlSystemItemsB.segment1.label("label"), MtlSystemItemsB.segment1.label("value")).filter(MtlSystemItemsB.organization_id == bindparam("mfg_organization_code"))
                             )
 
   
