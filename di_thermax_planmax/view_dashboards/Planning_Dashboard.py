@@ -171,7 +171,7 @@ class PlanningDashboard(Dashboard):
     
     std_nstd = FilterField(display_name="STD / NSTD",
                                    values="Select(func.distinct(PlanmaxHeaders.std_nstd).label('value'), PlanmaxHeaders.std_nstd.label('label'))",
-                                   multiselect=True,
+                                   multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'})
 
     dashboard_filters = FilterComponent(filter_fields={0: std_nstd})
