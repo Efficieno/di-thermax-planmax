@@ -99,7 +99,8 @@ class UpdateOrderFields(Action):
                               show_on_form=True, 
                               values=Select(XxplanmaxModelXref.model_number.label('label'), XxplanmaxModelXref.model_number.label('value')))
     
-    ld_applicable = Parameter(display_name="LD Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    ld_applicable = Parameter(display_name="LD Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Yes", "value": "Y"},
+                                                                                                                                         {"label": "No", "value": "N"}])
     
     wip_folder_release_date = Parameter(display_name="WIP Folder Release Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
     remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
