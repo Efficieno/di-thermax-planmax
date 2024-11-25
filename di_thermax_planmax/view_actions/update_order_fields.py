@@ -3,6 +3,7 @@ from efficieno.components.actions_object import Action, Parameter
 
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
 from di_thermax_planmax.erd.inv.mtl_system_items_b import MtlSystemItemsB
+from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_model_xref import XxplanmaxModelXref
 
 
 class UpdateOrderFields(Action):
@@ -90,7 +91,14 @@ class UpdateOrderFields(Action):
                             )
 
   
-    product_model = Parameter(display_name="Product Model", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    # product_model = Parameter(display_name="Product Model", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    product_model = Parameter(display_name="Product Model", 
+                              param_type=None, 
+                              data_type=String, 
+                              editable=True, 
+                              show_on_form=True, 
+                              values=Select(XxplanmaxModelXref.model_number.label('label'), XxplanmaxModelXref.model_number.label('value')))
+    
     ld_applicable = Parameter(display_name="LD Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
     
     wip_folder_release_date = Parameter(display_name="WIP Folder Release Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
