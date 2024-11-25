@@ -39,7 +39,7 @@ class PlanningDashboard(Dashboard):
                           details=[])
     charts_hL_B6ejVG = PanelComponent(component_type="charts",
                           name="PRN Status",
-                          query="Select(PlanmaxHeaders.prn_creation_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.prn_creation_status)",
+                          query="Select(PlanmaxHeaders.prn_creation_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED', 'FULFILLED'])).filter(PlanmaxHeaders.group_name != 'HO').group_by(PlanmaxHeaders.prn_creation_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="PRN Status",
                           description="Demo Description",
@@ -52,7 +52,7 @@ class PlanningDashboard(Dashboard):
                           details=[])
     charts_6oVivWQha = PanelComponent(component_type="charts",
                           name="Order Intake",
-                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').group_by(PlanmaxHeaders.order_intake_status)",
+                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED', 'FULFILLED'])).group_by(PlanmaxHeaders.order_intake_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Order Intake",
                           description="Demo Description",
