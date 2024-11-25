@@ -108,7 +108,17 @@ class UpdateOrderFields(Action):
     product_category = Parameter(display_name="Product Category", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
     
     rated_standard_man_hrs = Parameter(display_name="RSMH", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
-    reason_for_otp = Parameter(display_name="Reason for OTP", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    reason_for_otp = Parameter(display_name="Reason for OTP", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Delay due to Materials", "value": "Delay due to Materials"},
+                                                                                                                                            {"label": "Delay due to Engineering", "value": "Delay due to Engineering"},
+                                                                                                                                            {"label": "Delay due to Manufacturing", "value": "Delay due to Manufacturing"},
+                                                                                                                                            {"label": "Delay due to Stores", "value": "Delay due to Stores"},
+                                                                                                                                            {"label": "Change in specs by Customer", "value": "Change in specs by Customer"},
+                                                                                                                                            {"label": "Planning input Delay", "value": "Planning input Delay"},
+                                                                                                                                            {"label": "QC related Delay", "value": "QC related Delay"},
+                                                                                                                                            {"label": "Wrong commitment", "value": "Wrong commitment"},
+                                                                                                                                            {"label": "Delay due to technical unclarity", "value": "Delay due to technical unclarity"},
+                                                                                                                                            {"label": "IBR related delay", "value": "IBR related delay"},
+                                                                                                                                            {"label": "Vendor and Engineering related rework", "value": "Vendor and Engineering related rework"}])
     prn_applicable = Parameter(display_name="PRN Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
     oc_status = Parameter(display_name="OC Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
     oc_closure_date = Parameter(display_name="OC Closure Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
