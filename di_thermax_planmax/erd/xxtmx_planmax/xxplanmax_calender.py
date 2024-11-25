@@ -41,6 +41,6 @@ class XxplanmaxCalender(ERDBase):
     year_end_date: Mapped[str] = mapped_column('year_end_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
 
-    XxplanmaxHeaderDtls_orig_thx_commitment_date: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="XxplanmaxCalender_day_id", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.orig_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.orig_thx_commitment_date]", viewonly=True) 
+    XxplanmaxHeaderDtls_curr_thx_commitment_date: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="XxplanmaxCalender_day_id", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.curr_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.curr_thx_commitment_date]", viewonly=True) 
 
 
