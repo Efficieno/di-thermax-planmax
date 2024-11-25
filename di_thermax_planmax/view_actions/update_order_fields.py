@@ -120,7 +120,10 @@ class UpdateOrderFields(Action):
                                                                                                                                             {"label": "IBR related delay", "value": "IBR related delay"},
                                                                                                                                             {"label": "Vendor and Engineering related rework", "value": "Vendor and Engineering related rework"}])
     prn_applicable = Parameter(display_name="PRN Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
-    oc_status = Parameter(display_name="OC Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    oc_status = Parameter(display_name="OC Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Partial", "value": "P"},
+                                                                                                                                {"label": "Open", "value": "O"},
+                                                                                                                                {"label": "Closed", "value": "C"}])
+    
     oc_closure_date = Parameter(display_name="OC Closure Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
     plan_eol_mech_date = Parameter(display_name="Planned EOL Mech Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
     plan_eol_ei_date = Parameter(display_name="Planned EOL EI Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
