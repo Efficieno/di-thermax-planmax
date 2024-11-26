@@ -93,7 +93,10 @@ class UpdateOrderFields(Action):
                                                                                                                                             {"label": "Delay due to technical unclarity", "value": "Delay due to technical unclarity"},
                                                                                                                                             {"label": "IBR related delay", "value": "IBR related delay"},
                                                                                                                                             {"label": "Vendor and Engineering related rework", "value": "Vendor and Engineering related rework"}])
-    prn_applicable = Parameter(display_name="PRN Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    
+    prn_applicable = Parameter(display_name="PRN Applicable", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Yes", "value": "Y"},
+                                                                                                                                           {"label": "No", "value": "N"}])
+    
     oc_status = Parameter(display_name="OC Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Partial", "value": "P"},
                                                                                                                                 {"label": "Open", "value": "O"},
                                                                                                                                 {"label": "Closed", "value": "C"}])
@@ -114,6 +117,11 @@ class UpdateOrderFields(Action):
         print(f"model_line_id          old - {cls.model_line_id.old_value}        new - {cls.model_line_id.new_value}")
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
+
+        if cls.prn_applicable.new_value == "N":
+            v_prn_creation_status = "NA"
+        else:
+            v_prn_creation_status = cls.prn_creation_status.new_value
         
         subQuery = Select(OrgOrganizationDefinitions.organization_id).filter(OrgOrganizationDefinitions.organization_code == cls.mfg_organization_code.new_value).scalar_subquery()
         update_sql = (Update(XxplanmaxHeaderDtls)
@@ -138,7 +146,7 @@ class UpdateOrderFields(Action):
                       mfg_commitment_date=cls.mfg_commitment_date.new_value,
                       order_intake_status=cls.order_intake_status.new_value,
                       bom_common_status=cls.bom_common_status.new_value,
-                      prn_creation_status=cls.prn_creation_status.new_value,
+                      prn_creation_status=v_prn_creation_status,
                       remarks=cls.remarks.new_value,
                       ld_applicable=cls.ld_applicable.new_value,
                       rated_standard_man_hrs=cls.rated_standard_man_hrs.new_value,
