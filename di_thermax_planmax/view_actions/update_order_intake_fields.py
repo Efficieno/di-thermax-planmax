@@ -3,6 +3,7 @@ from efficieno.components.actions_object import Action, Parameter
 
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
 from di_thermax_planmax.erd.inv.mtl_system_items_b import MtlSystemItemsB
+from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 
 
 class UpdateOrderIntake(Action):
@@ -49,5 +50,25 @@ class UpdateOrderIntake(Action):
         print(f"model_line_id          old - {cls.model_line_id.old_value}        new - {cls.model_line_id.new_value}")
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
+
+        if cls.std_nstd.current_value == 'STD':
+            v_ocl_required = 'N'
+        else:
+            v_ocl_required = 'Y'
+        
+        subQuery = Select(OrgOrganizationDefinitions.organization_id).filter(OrgOrganizationDefinitions.organization_code == cls.mfg_organization_code.current_value).scalar_subquery()
+        update_sql = (Update(XxplanmaxHeaderDtls)
+                      .where(and_(XxplanmaxHeaderDtls.sales_order_header_id == cls.sales_order_header_id.current_value, XxplanmaxHeaderDtls.model_line_id == cls.model_line_id.current_value))
+                      .values(mfg_organization_code = cls.mfg_organization_code.current_value, 
+                      std_nstd=cls.std_nstd.current_value, 
+                      sos_item=cls.sos_item.current_value, 
+                      oc_no=cls.oc_number.current_value,
+                      mfg_organization_id = subQuery,
+                      oc_required=v_ocl_required,
+                      curr_cust_required_date=cls.curr_cust_required_date.current_value,
+                      curr_thx_commitment_date=cls.curr_thx_commitment_date.current_value,
+                      remarks=cls.remarks.current_value))
+
+        print(f"Executing Statement {update_sql}")
         print("Completed Execution")
         return {}
