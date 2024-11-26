@@ -26,7 +26,7 @@ class UpdateOrderIntake(Action):
                                   data_type=String,
                                   editable=True,
                                   show_on_form=True,
-                                  values=Select(OrgOrganizationDefinitions.organization_id.label("value"), OrgOrganizationDefinitions.organization_code.label("label")))
+                                  values=Select(OrgOrganizationDefinitions.organization_code.label("value"), OrgOrganizationDefinitions.organization_code.label("label")))
 
     sos_item = Parameter(display_name="SOS Item Number",
                             param_type=None,
