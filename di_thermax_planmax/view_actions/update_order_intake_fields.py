@@ -35,7 +35,7 @@ class UpdateOrderIntake(Action):
                             show_on_form=True,
                             values=None)
     
-    oc_number = Parameter(display_name="OC Number", param_type=None, data_type=Integer, editable=True, show_on_form=True, values=None)
+    oc_no = Parameter(display_name="OC Number", param_type=None, data_type=Integer, editable=True, show_on_form=True, values=None)
 
     remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
 
