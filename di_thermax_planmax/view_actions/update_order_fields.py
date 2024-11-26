@@ -23,12 +23,14 @@ class UpdateOrderFields(Action):
     prn_creation_status = Parameter(display_name="prn_creation_status", param_type=None, data_type=String, editable=False, show_on_form=True, values=None)
   
     # Editable fields 
-    order_status = Parameter(display_name="Order Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Open",
-                                                                                                                                        "value": "OPEN"},
-                                                                                                                                       {"label": "Closed",
-                                                                                                                                        "value": "CLOSED"},
-                                                                                                                                       {"label": "Cancelled",
-                                                                                                                                        "value": "CANCELLED"}])
+    order_status = Parameter(display_name="Order Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Open", "value": "OPEN"},
+                                                                                                                                       {"label": "Closed", "value": "CLOSED"},
+                                                                                                                                       {"label": "Cancelled", "value": "CANCELLED"},
+                                                                                                                                       {"label": "HOLD_POST PRN", "value": "HOLD_POST PRN"},
+                                                                                                                                       {"label": "ON_HOLD", "value": "ON_HOLD"},
+                                                                                                                                       {"label": "HOLD", "value": "HOLD"},
+                                                                                                                                       {"label": "ENTERED", "value": "ENTERED"}
+                                                                                                                                      ])
     
     project_segment1 = Parameter(display_name="Project Number",
                                   param_type=None,
