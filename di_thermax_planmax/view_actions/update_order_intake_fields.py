@@ -1,5 +1,6 @@
 from sqlalchemy import Integer, Select, bindparam, String, Date, Update, and_, func
 from efficieno.components.actions_object import Action, Parameter
+from efficieno.data_sources.data_sources import DataSource
 
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
 from di_thermax_planmax.erd.inv.mtl_system_items_b import MtlSystemItemsB
@@ -71,5 +72,7 @@ class UpdateOrderIntake(Action):
                              ))
 
         print(f"Executing Statement {update_sql}")
-        print("Completed Execution")
+        data_source = DataSource()
+        result = data_source.execute_update(update_sql)
+        print(f"Completed Execution {result}")
         return {}
