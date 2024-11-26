@@ -32,8 +32,8 @@ class UpdateOrderIntake(Action):
                             data_type=String,
                             editable=True,
                             show_on_form=True,
-                            values=Select(MtlSystemItemsB.segment1.label("label"), MtlSystemItemsB.segment1.label("value")).filter(MtlSystemItemsB.organization_id == bindparam("mfg_organization_code"))
-                            )
+                            values=None)
+    
     oc_number = Parameter(display_name="OC Number", param_type=None, data_type=Integer, editable=True, show_on_form=True, values=None)
 
     remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
