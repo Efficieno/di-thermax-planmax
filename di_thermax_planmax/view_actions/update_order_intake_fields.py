@@ -63,7 +63,7 @@ class UpdateOrderIntake(Action):
                       .values(mfg_organization_code = cls.mfg_organization_code.current_value, 
                       std_nstd=cls.std_nstd.current_value, 
                       sos_item=cls.sos_item.current_value, 
-                      oc_no=cls.oc_number.current_value,
+                      oc_no=cls.oc_no.current_value,
                       mfg_organization_id = subQuery,
                       oc_required=v_ocl_required,
                       curr_cust_required_date=cls.curr_cust_required_date.current_value,
