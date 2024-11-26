@@ -118,6 +118,41 @@ class UpdateOrderFields(Action):
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
 
+        # # Update OC Required 
+        # if cls.std_nstd.current_value == 'STD':
+        #     v_ocl_required = 'N'
+        # else:
+        #     v_ocl_required = 'Y'
+        
+        # Update MFG Folder Status 
+        if cls.wip_folder_release_date.current_value is not None:
+            v_mfg_job_folder_status_val = 'C'
+        else:
+            v_mfg_job_folder_status_val = 'P'
+        
+        # Update Order Intake Status
+        if cls.order_status.current_value == "OPEN":
+            if cls.std_nstd.current_value == "STD" and cls.mfg_organization_code.current_value is not None and cls.project_segment1.current_value is not None:
+                v_order_intake_status_val = "C"
+            elif cls.std_nstd.current_value == "NSTD" and cls.mfg_organization_code.current_value is not None and cls.project_segment1.current_value is not None and cls.sos_item.current_value is not None:
+                v_order_intake_status_val = "C"
+            else:
+                v_order_intake_status_val = cls.order_intake_status.current_value
+        else:
+            v_order_intake_status_val = cls.order_intake_status.current_value
+        
+        # Change BOM Common Status
+        if cls.order_status.current_value == "OPEN":
+            if cls.std_nstd.current_value == "STD":
+                v_bom_common_status_val = "NA" 
+            elif cls.std_nstd.current_value == "NSTD":
+                v_bom_common_status_val = "W"
+            else:
+                v_bom_common_status_val = cls.bom_common_status.current_value
+        else:
+            v_bom_common_status_val = cls.bom_common_status.current_value
+
+        # Compute PRN Creation Status
         if cls.prn_applicable.current_value == "N":
             v_prn_creation_status = "NA"
         else:
@@ -144,8 +179,8 @@ class UpdateOrderFields(Action):
                       plan_eol_mech_date=cls.plan_eol_mech_date.current_value,
                       plan_eol_ei_date=cls.plan_eol_ei_date.current_value,
                       mfg_commitment_date=cls.mfg_commitment_date.current_value,
-                      order_intake_status=cls.order_intake_status.current_value,
-                      bom_common_status=cls.bom_common_status.current_value,
+                      order_intake_status=v_order_intake_status_val,
+                      bom_common_status=v_bom_common_status_val,
                       prn_creation_status=v_prn_creation_status,
                       remarks=cls.remarks.current_value,
                       ld_applicable=cls.ld_applicable.current_value,
