@@ -11,9 +11,9 @@ from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_calender import XxplanmaxCal
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_drp_details import XxplanmaxDrpDetails
 
 
-class PlanmaxHeaders(ERDBase):
+class PlanmaxDRPDetails(ERDBase):
     # __table__ = (join(XxplanmaxHeaderDtls, XxplanmaxCustDtls, XxplanmaxHeaderDtls.XxplanmaxCustDtls_site_use_id.expression)
     #              .join(OrgOrganizationDefinitions, XxplanmaxHeaderDtls.OrgOrganizationDefinitions_organization_id.expression))
-    # __table__ = XxplanmaxHeaderDtls.__table__
-    __table__ = join(XxplanmaxHeaderDtls, XxplanmaxCalender, XxplanmaxHeaderDtls.XxplanmaxCalender_day_id.expression)
+    __table__ = XxplanmaxDrpDetails.__table__
+    # __table__ = join(XxplanmaxHeaderDtls, XxplanmaxCalender, XxplanmaxHeaderDtls.XxplanmaxCalender_day_id.expression)
     __table_properties__ = {"ui_x_pos": 503.13734483912555, "ui_y_pos": 891.5731584714746, "colour": "#F2F3F5"}
