@@ -18,11 +18,11 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 642}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 486}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 393.640625}], 'size': 227}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '7'}, 'size': 506}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '4'}, 'size': 506}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 509.640625}], 'size': 100}, {'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy', 'tables_vojYo5I5e'], 'activeView': 'tables_vojYo5I5e', 'id': '8'}, 'size': 422.171875}], 'size': 1521.640625}
-    __grid_width__ = 1521.640625
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 1004}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '2'}, 'size': 187}, {'type': 'leaf', 'data': {'views': ['charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '7'}, 'size': 187}], 'size': 405}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '5'}, 'size': 187}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '4'}, 'size': 187}], 'size': 371.3125}], 'size': 374}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy', 'tables_vojYo5I5e'], 'activeView': 'tables_vojYo5I5e', 'id': '8'}, 'size': 1440}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 340.3125}], 'size': 375.171875}], 'size': 1780.3125}
+    __grid_width__ = 1780.3125
     __grid_height__ = 749.171875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 8
+    __active_group__ = 7
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
