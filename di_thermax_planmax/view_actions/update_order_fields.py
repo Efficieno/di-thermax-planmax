@@ -4,6 +4,7 @@ from efficieno.components.actions_object import Action, Parameter
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
 from di_thermax_planmax.erd.inv.mtl_system_items_b import MtlSystemItemsB
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_model_xref import XxplanmaxModelXref
+from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_header_dtls import 
 
 
 class UpdateOrderFields(Action):
@@ -140,5 +141,19 @@ class UpdateOrderFields(Action):
         print(f"model_line_id          old - {cls.model_line_id.old_value}        new - {cls.model_line_id.new_value}")
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
+        
+        subQuery = Select(Organizations.organization_id).filter(Organizations.organization_code == v_mfg_org_code_val).scalar_subquery()
+        update_sql = (Update(PlanMaxHeaders)
+                      .where(and_(PlanMaxHeaders.sales_order_header_id == sales_order_header_id, PlanMaxHeaders.model_line_id == model_line_id))
+                      .values(mfg_organization_code = v_mfg_org_code_val, 
+                      std_nstd=v_std_nstd_val, 
+                      sos_item=v_sos_item_val, 
+                      oc_no=v_oc_no_val,
+                      mfg_organization_id = subQuery,
+                      oc_required=v_ocl_required,
+                      curr_cust_required_date=v_curr_cust_required_date_val,
+                      curr_thx_commitment_date=v_curr_thx_commitment_date_val,
+                      remarks=v_remarks_val))
+        
         print("Completed Execution")
         return {}
