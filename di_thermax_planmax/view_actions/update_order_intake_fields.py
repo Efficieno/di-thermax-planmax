@@ -67,7 +67,8 @@ class UpdateOrderIntake(Action):
                       oc_required=v_ocl_required,
                       curr_cust_required_date=cls.curr_cust_required_date.current_value,
                       curr_thx_commitment_date=cls.curr_thx_commitment_date.current_value,
-                      remarks=cls.remarks.current_value))
+                      # remarks=cls.remarks.current_value
+                             ))
 
         print(f"Executing Statement {update_sql}")
         print("Completed Execution")
