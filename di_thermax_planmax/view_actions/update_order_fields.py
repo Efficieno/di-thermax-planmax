@@ -33,9 +33,9 @@ class UpdateOrderFields(Action):
     project_segment1 = Parameter(display_name="Project Number",
                                   param_type=None,
                                   data_type=String,
-                                  editable=True,
+                                  editable=False,
                                   show_on_form=True,
-                                  values=Select(OrgOrganizationDefinitions.organization_id.label("value"), OrgOrganizationDefinitions.organization_code.label("label")))
+                                  values=None)
 
     curr_cust_required_date = Parameter(display_name="Curr Cust Required Date", param_type=None, data_type=Date, editable=True, show_on_form=True, values=None)
 
