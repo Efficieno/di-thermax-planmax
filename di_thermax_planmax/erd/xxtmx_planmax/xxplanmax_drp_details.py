@@ -11,7 +11,7 @@ class XxplanmaxDrpDetails(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "xxplanmax_drp_details"
     __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -1044.4406127929688, "ui_y_pos": 721.666259765625, "colour": "#F2F3F5"}
 
     org_code: Mapped[str] = mapped_column('org_code', String, primary_key=True, info={"column_metadata": ColumnMetadata()})
     organization_id: Mapped[str] = mapped_column('organization_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
