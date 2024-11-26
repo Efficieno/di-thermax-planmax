@@ -118,39 +118,39 @@ class UpdateOrderFields(Action):
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
 
-        if cls.prn_applicable.new_value == "N":
+        if cls.prn_applicable.current_value == "N":
             v_prn_creation_status = "NA"
         else:
-            v_prn_creation_status = cls.prn_creation_status.new_value
+            v_prn_creation_status = cls.prn_creation_status.current_value
         
-        subQuery = Select(OrgOrganizationDefinitions.organization_id).filter(OrgOrganizationDefinitions.organization_code == cls.mfg_organization_code.new_value).scalar_subquery()
+        subQuery = Select(OrgOrganizationDefinitions.organization_id).filter(OrgOrganizationDefinitions.organization_code == cls.mfg_organization_code.current_value).scalar_subquery()
         update_sql = (Update(XxplanmaxHeaderDtls)
-                      .where(and_(XxplanmaxHeaderDtls.sales_order_header_id == sales_order_header_id, XxplanmaxHeaderDtls.model_line_id == model_line_id))
+                      .where(and_(XxplanmaxHeaderDtls.sales_order_header_id == cls.sales_order_header_id.current_value, XxplanmaxHeaderDtls.model_line_id == cls.model_line_id.current_value))
                       .values( 
-                      curr_cust_required_date=cls.curr_cust_required_date.new_value,
-                      curr_thx_commitment_date=cls.curr_thx_commitment_date.new_value,
-                      mfg_organization_code = cls.mfg_organization_code.new_value, 
-                      std_nstd=cls.std_nstd.new_value, 
-                      sos_item=cls.sos_item.new_value,
+                      curr_cust_required_date=cls.curr_cust_required_date.current_value,
+                      curr_thx_commitment_date=cls.curr_thx_commitment_date.current_value,
+                      mfg_organization_code = cls.mfg_organization_code.current_value, 
+                      std_nstd=cls.std_nstd.current_value, 
+                      sos_item=cls.sos_item.current_value,
                       mfg_organization_id = subQuery,
                       # manual_order_status=v_manual_order_status_val,
-                      order_status=cls.order_status.new_value,
-                      wip_folder_release_date=cls.wip_folder_release_date.new_value,
+                      order_status=cls.order_status.current_value,
+                      wip_folder_release_date=cls.wip_folder_release_date.current_value,
                       mfg_job_folder_status=v_mfg_job_folder_status_val,
-                      product_category=cls.product_category.new_value,
-                      prn_applicable=cls.prn_applicable.new_value,
-                      oc_status=cls.oc_status.new_value,
-                      oc_closure_date=cls.oc_closure_date.new_value,
-                      plan_eol_mech_date=cls.plan_eol_mech_date.new_value,
-                      plan_eol_ei_date=cls.plan_eol_ei_date.new_value,
-                      mfg_commitment_date=cls.mfg_commitment_date.new_value,
-                      order_intake_status=cls.order_intake_status.new_value,
-                      bom_common_status=cls.bom_common_status.new_value,
+                      product_category=cls.product_category.current_value,
+                      prn_applicable=cls.prn_applicable.current_value,
+                      oc_status=cls.oc_status.current_value,
+                      oc_closure_date=cls.oc_closure_date.current_value,
+                      plan_eol_mech_date=cls.plan_eol_mech_date.current_value,
+                      plan_eol_ei_date=cls.plan_eol_ei_date.current_value,
+                      mfg_commitment_date=cls.mfg_commitment_date.current_value,
+                      order_intake_status=cls.order_intake_status.current_value,
+                      bom_common_status=cls.bom_common_status.current_value,
                       prn_creation_status=v_prn_creation_status,
-                      remarks=cls.remarks.new_value,
-                      ld_applicable=cls.ld_applicable.new_value,
-                      rated_standard_man_hrs=cls.rated_standard_man_hrs.new_value,
-                      reason_for_otp=cls.reason_for_otp.new_value))
+                      remarks=cls.remarks.current_value,
+                      ld_applicable=cls.ld_applicable.current_value,
+                      rated_standard_man_hrs=cls.rated_standard_man_hrs.current_value,
+                      reason_for_otp=cls.reason_for_otp.current_value))
         print(f"Executing SQL Statement {update_sql}")
         print("Completed Execution")
         return {}
