@@ -4,39 +4,12 @@ from efficieno.components.actions_object import Action, Parameter
 from di_thermax_planmax.erd.apps.org_organization_definitions import OrgOrganizationDefinitions
 from di_thermax_planmax.erd.inv.mtl_system_items_b import MtlSystemItemsB
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_model_xref import XxplanmaxModelXref
-from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_header_dtls import 
+from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
 
 
 class UpdateOrderFields(Action):
     __action_name__ = "Update Order Fields"
     __action_description__ = "Update Order Fields"
-
-    # sales_order_header_id: int,
-    # model_line_id: str,
-    # order_status: str,
-    # project_segment1: str,
-    # order_intake_status: str,
-    # bom_common_status: str,
-    # prn_creation_status: str,
-    # curr_cust_required_date: dict = None,
-    # curr_thx_commitment_date: dict = None,
-    # mfg_organization_code: str = None,
-    # std_nstd: str = None,
-    # sos_item: str = None,
-    # product_model: str = None,
-    # ld_applicable: str = None,
-    # # manual_order_status: str = None,
-    # wip_folder_release_date: dict = None,
-    # remarks: str = None,
-    # product_category: str = None,
-    # rated_standard_man_hrs: str = None, 
-    # reason_for_otp: str = None, 
-    # prn_applicable: str = None,
-    # oc_status: str = None,
-    # oc_closure_date: dict = None,
-    # plan_eol_mech_date: dict = None,
-    # plan_eol_ei_date: dict = None,
-    # mfg_commitment_date: dict = None,
 
     # Non Editable fields 
     sales_order_header_id = Parameter(display_name="sales_order_header_id", param_type=None, data_type=Integer, editable=False, show_on_form=True, values=None)
@@ -73,7 +46,7 @@ class UpdateOrderFields(Action):
                                   data_type=String,
                                   editable=True,
                                   show_on_form=True,
-                                  values=Select(OrgOrganizationDefinitions.organization_id.label("value"), OrgOrganizationDefinitions.organization_code.label("label")))
+                                  values=Select(OrgOrganizationDefinitions.organization_code.label("value"), OrgOrganizationDefinitions.organization_code.label("label")))
 
 
     std_nstd = Parameter(display_name="Standard / Non Standard", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Standard",
@@ -142,18 +115,34 @@ class UpdateOrderFields(Action):
         print(f"std_nstd   old - {cls.std_nstd.old_value} new - {cls.std_nstd.new_value}")
         print(f"mfg_organization_code         old - {cls.mfg_organization_code.old_value}       new - {cls.mfg_organization_code.new_value}")
         
-        subQuery = Select(Organizations.organization_id).filter(Organizations.organization_code == v_mfg_org_code_val).scalar_subquery()
-        update_sql = (Update(PlanMaxHeaders)
-                      .where(and_(PlanMaxHeaders.sales_order_header_id == sales_order_header_id, PlanMaxHeaders.model_line_id == model_line_id))
-                      .values(mfg_organization_code = v_mfg_org_code_val, 
-                      std_nstd=v_std_nstd_val, 
-                      sos_item=v_sos_item_val, 
-                      oc_no=v_oc_no_val,
+        subQuery = Select(OrgOrganizationDefinitions.organization_id).filter(OrgOrganizationDefinitions.organization_code == cls.mfg_organization_code.new_value).scalar_subquery()
+        update_sql = (Update(XxplanmaxHeaderDtls)
+                      .where(and_(XxplanmaxHeaderDtls.sales_order_header_id == sales_order_header_id, XxplanmaxHeaderDtls.model_line_id == model_line_id))
+                      .values( 
+                      curr_cust_required_date=cls.curr_cust_required_date.new_value,
+                      curr_thx_commitment_date=cls.curr_thx_commitment_date.new_value,
+                      mfg_organization_code = cls.mfg_organization_code.new_value, 
+                      std_nstd=cls.std_nstd.new_value, 
+                      sos_item=cls.sos_item.new_value,
                       mfg_organization_id = subQuery,
-                      oc_required=v_ocl_required,
-                      curr_cust_required_date=v_curr_cust_required_date_val,
-                      curr_thx_commitment_date=v_curr_thx_commitment_date_val,
-                      remarks=v_remarks_val))
-        
+                      # manual_order_status=v_manual_order_status_val,
+                      order_status=cls.order_status.new_value,
+                      wip_folder_release_date=cls.wip_folder_release_date.new_value,
+                      mfg_job_folder_status=v_mfg_job_folder_status_val,
+                      product_category=cls.product_category.new_value,
+                      prn_applicable=cls.prn_applicable.new_value,
+                      oc_status=cls.oc_status.new_value,
+                      oc_closure_date=cls.oc_closure_date.new_value,
+                      plan_eol_mech_date=cls.plan_eol_mech_date.new_value,
+                      plan_eol_ei_date=cls.plan_eol_ei_date.new_value,
+                      mfg_commitment_date=cls.mfg_commitment_date.new_value,
+                      order_intake_status=cls.order_intake_status.new_value,
+                      bom_common_status=cls.bom_common_status.new_value,
+                      prn_creation_status=cls.prn_creation_status.new_value,
+                      remarks=cls.remarks.new_value,
+                      ld_applicable=cls.ld_applicable.new_value,
+                      rated_standard_man_hrs=cls.rated_standard_man_hrs.new_value,
+                      reason_for_otp=cls.reason_for_otp.new_value))
+        print(f"Executing SQL Statement {update_sql}")
         print("Completed Execution")
         return {}
