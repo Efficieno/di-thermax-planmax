@@ -19,8 +19,8 @@ class PlanningBasic(Dashboard):
     __active_group__ = 1
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
-                          name="Demo Header",
-                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count'))",
+                          name="Total Orders",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Total Orders ",
                           description=" ",
@@ -85,7 +85,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_jGacS5A2T = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="Select(func.concat(func.concat(func.count(PlanmaxHeaders.sales_order_header_id).label('count'), '/') ,func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value')))",
+                          query="Select(func.concat(func.concat(func.count(PlanmaxHeaders.sales_order_header_id).label('count'), '/') ,func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value'))).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="(count/value)",
