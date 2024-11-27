@@ -16,7 +16,7 @@ class PlanningBasic(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 1
+    __active_group__ = 5
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
@@ -24,6 +24,19 @@ class PlanningBasic(Dashboard):
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Total Orders ",
                           description=" ",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'additionalFieldVisible': True, 'display': '1000', 'fontSize': '1', 'fontStyle': []},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    metrics_jGacS5A2T = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header=" ",
+                          description="Values (unit/di/invoice)",
                           content_component="mediator",
                           relations=[],
                           metadata={'additionalFieldVisible': True, 'display': '1000', 'fontSize': '1', 'fontStyle': []},
@@ -83,38 +96,22 @@ class PlanningBasic(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    metrics_jGacS5A2T = PanelComponent(component_type="metrics",
-                          name="Demo Header",
-                          query="Select(func.concat(func.concat(func.count(PlanmaxHeaders.sales_order_header_id).label('count'), '/') ,func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value'))).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
-                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header=" ",
-                          description="(count/value)",
-                          content_component="mediator",
-                          relations=[],
-                          metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
-                          drill_downs={},
-                          actions=[],
-                          inline_actions={'name': '', 'value': ''},
-                          details=[])
 
     std_nstd = FilterField(display_name="STD / NSTD",
                                    values="Select(func.distinct(PlanmaxHeaders.std_nstd).label('value'), PlanmaxHeaders.std_nstd.label('label'))",
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
-
     group_name = FilterField(display_name="Group Name",
                                    values="Select(func.distinct(PlanmaxHeaders.group_name).label('value'), PlanmaxHeaders.group_name.label('label'))",
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
-
     region_of_order = FilterField(display_name="Region",
                                    values="Select(func.distinct(PlanmaxHeaders.region_of_order).label('value'), PlanmaxHeaders.region_of_order.label('label'))",
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
-    
     product_category = FilterField(display_name="Product Category",
                                    values="Select(func.distinct(PlanmaxHeaders.product_category).label('value'), PlanmaxHeaders.product_category.label('label'))",
                                    multiselect=False,
@@ -125,7 +122,6 @@ class PlanningBasic(Dashboard):
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
-
     planner = FilterField(display_name="Planner",
                                    values="Select(func.distinct(PlanmaxHeaders.planner).label('value'), PlanmaxHeaders.planner.label('label'))",
                                    multiselect=False,
@@ -136,18 +132,10 @@ class PlanningBasic(Dashboard):
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
-
     prn_creation_status = FilterField(display_name="PRN Status",
                                    values="Select(func.distinct(PlanmaxHeaders.prn_creation_status).label('value'), PlanmaxHeaders.prn_creation_status.label('label'))",
                                    multiselect=False,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
 
-    dashboard_filters = FilterComponent(filter_fields={0: std_nstd,
-                                                      1: group_name,
-                                                      2: region_of_order,
-                                                      3: product_category,
-                                                      4: mfg_organization_code,
-                                                      5: planner,
-                                                      6: regional_commercial,
-                                                      7: prn_creation_status})
+    dashboard_filters = FilterComponent(filter_fields={0: std_nstd,1: group_name,2: region_of_order,3: product_category,4: mfg_organization_code,5: planner,6: regional_commercial,7: prn_creation_status})
