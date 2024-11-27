@@ -43,7 +43,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_40vIQtFUN = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="Select(func.concat(func.concat(func.count(PlanmaxHeaders.sales_order_header_id).label('count'), '/') ,func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value'))).filter(PlanmaxHeaders.order_status.in_(["OPEN", "FULFILLED", "HOLD", "HOLD_POST PRN"]))",
+                          query="Select(func.concat(func.concat(func.count(PlanmaxHeaders.sales_order_header_id).label('count'), '/') ,func.round(func.sum(PlanmaxHeaders.total_unit_value_in_inr/ 100000), 2).label('value'))).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Total Rolling Plan",
                           description="Rolling Plan (count/value)",
