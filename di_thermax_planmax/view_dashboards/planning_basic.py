@@ -137,6 +137,12 @@ class PlanningBasic(Dashboard):
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
 
+    prn_creation_status = FilterField(display_name="PRN Status",
+                                   values="Select(func.distinct(PlanmaxHeaders.prn_creation_status).label('value'), PlanmaxHeaders.prn_creation_status.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+
     dashboard_filters = FilterComponent(filter_fields={0: std_nstd,
                                                       1: group_name,
                                                       2: region_of_order,
