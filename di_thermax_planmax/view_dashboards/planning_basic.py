@@ -16,11 +16,11 @@ class PlanningBasic(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 5
+    __active_group__ = 1
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
-                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.split_line_number == 1)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Total Orders ",
                           description=" ",
@@ -33,7 +33,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_jGacS5A2T = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="Select(literal_column(\"round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) \")).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values (unit/di/invoice)",
