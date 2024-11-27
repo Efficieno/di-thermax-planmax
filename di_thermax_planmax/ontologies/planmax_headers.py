@@ -160,3 +160,4 @@ class PlanmaxHeaders(ERDBase):
     ordered_item_id = column_property(XxplanmaxHeaderDtls.ordered_item_id)
     sos_item_id = column_property(XxplanmaxHeaderDtls.sos_item_id)
     reflection_completion_date = column_property(XxplanmaxHeaderDtls.reflection_completion_date)
+    month_name = column_property(XxplanmaxCalender.month_name)
