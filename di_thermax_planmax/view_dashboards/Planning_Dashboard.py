@@ -18,9 +18,9 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 1004}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG', 'charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '2'}, 'size': 405}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha', 'charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '5'}, 'size': 371.3125}], 'size': 374}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy', 'tables_vojYo5I5e'], 'activeView': 'tables_vojYo5I5e', 'id': '8'}, 'size': 1440}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 340.3125}], 'size': 375.171875}], 'size': 1780.3125}
-    __grid_width__ = 1780.3125
-    __grid_height__ = 749.171875
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 1007}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG', 'charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '2'}, 'size': 406}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha', 'charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '5'}, 'size': 373.09375}], 'size': 372}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy', 'tables_vojYo5I5e'], 'activeView': 'tables_UOdbwrgzB', 'id': '8'}, 'size': 1445}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 341.09375}], 'size': 373.46875}], 'size': 1786.09375}
+    __grid_width__ = 1786.09375
+    __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
     __active_group__ = 8
 
