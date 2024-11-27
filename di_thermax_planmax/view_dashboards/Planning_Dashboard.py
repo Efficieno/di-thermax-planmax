@@ -18,11 +18,11 @@ class PlanningDashboard(Dashboard):
     __dashboard_name__ = "Planning Dashboard"
     __dashboard_description__ = "Planning Dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 993}, {'type': 'leaf', 'data': {'views': ['charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '2'}, 'size': 420}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '5'}, 'size': 373.09375}], 'size': 645.46875}, {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_UOdbwrgzB', 'id': '8'}, 'size': 373.46875, 'visible': False}, {'type': 'leaf', 'data': {'views': ['tables_vojYo5I5e'], 'activeView': 'tables_vojYo5I5e', 'id': '3'}, 'size': 100.46875, 'visible': False}], 'size': 0}, {'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '7'}, 'size': 587}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '4'}, 'size': 751}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 448.09375}], 'size': 100}], 'size': 1786.09375}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts__aEywZ_Sh'], 'activeView': 'charts__aEywZ_Sh', 'id': '1'}, 'size': 993}, {'type': 'leaf', 'data': {'views': ['charts_RR_PiQv2I'], 'activeView': 'charts_RR_PiQv2I', 'id': '2'}, 'size': 420}, {'type': 'leaf', 'data': {'views': ['charts_DrkoURGFu'], 'activeView': 'charts_DrkoURGFu', 'id': '5'}, 'size': 373.09375}], 'size': 260}, {'type': 'leaf', 'data': {'views': ['tables_UOdbwrgzB', 'tables_X21l_Bolp', 'tables_DcGxdVJ2x', 'tables_M4mK5COb0', 'tables_WLKF5mgCy'], 'activeView': 'tables_UOdbwrgzB', 'id': '8'}, 'size': 100}, {'type': 'leaf', 'data': {'views': ['tables_vojYo5I5e'], 'activeView': 'tables_vojYo5I5e', 'id': '3'}, 'size': 100}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['charts_6oVivWQha'], 'activeView': 'charts_6oVivWQha', 'id': '7'}, 'size': 595}, {'type': 'leaf', 'data': {'views': ['charts_hL_B6ejVG'], 'activeView': 'charts_hL_B6ejVG', 'id': '4'}, 'size': 595}, {'type': 'leaf', 'data': {'views': ['charts_JH9qfdbAn'], 'activeView': 'charts_JH9qfdbAn', 'id': '6'}, 'size': 596.09375}], 'size': 285.46875}], 'size': 1786.09375}
     __grid_width__ = 1786.09375
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 5
+    __active_group__ = 6
 
     charts__aEywZ_Sh = PanelComponent(component_type="charts",
                           name="Order Info Chart",
@@ -141,15 +141,15 @@ class PlanningDashboard(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    charts_JH9qfdbAn = PanelComponent(component_type="charts",
-                          name="DRP Status",
-                          query="Select(PlanmaxHeaders.mat_planning_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.prn_creation_status == 'C').group_by(PlanmaxHeaders.mat_planning_status)",
+    charts_6oVivWQha = PanelComponent(component_type="charts",
+                          name="Order Intake",
+                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED', 'FULFILLED'])).group_by(PlanmaxHeaders.order_intake_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="DRP Status",
+                          header="Order Intake",
                           description="Demo Description",
                           content_component="mediator",
-                          relations=[{'component_name': 'tables_WLKF5mgCy', 'relation_name': 'DRP Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'mat_planning_status', 'source_class_name': None, 'source_column_name': 'mat_planning_status'}]}],
-                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'mat_planning_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'DRP Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
+                          relations=[{'component_name': 'tables_DcGxdVJ2x', 'relation_name': 'Order Intake Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'order_intake_status', 'source_class_name': None, 'source_column_name': 'order_intake_status'}]}],
+                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
                           drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
@@ -167,15 +167,15 @@ class PlanningDashboard(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    charts_6oVivWQha = PanelComponent(component_type="charts",
-                          name="Order Intake",
-                          query="Select(PlanmaxHeaders.order_intake_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED', 'ENTERED', 'FULFILLED'])).group_by(PlanmaxHeaders.order_intake_status)",
+    charts_JH9qfdbAn = PanelComponent(component_type="charts",
+                          name="DRP Status",
+                          query="Select(PlanmaxHeaders.mat_planning_status, func.count(PlanmaxHeaders.prn_creation_status).label('count')).filter(PlanmaxHeaders.order_status == 'OPEN').filter(PlanmaxHeaders.prn_creation_status == 'C').group_by(PlanmaxHeaders.mat_planning_status)",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="Order Intake",
+                          header="DRP Status",
                           description="Demo Description",
                           content_component="mediator",
-                          relations=[{'component_name': 'tables_DcGxdVJ2x', 'relation_name': 'Order Intake Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'order_intake_status', 'source_class_name': None, 'source_column_name': 'order_intake_status'}]}],
-                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'order_intake_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'Order Intake', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
+                          relations=[{'component_name': 'tables_WLKF5mgCy', 'relation_name': 'DRP Details', 'relations': [{'destination_class_name': None, 'destination_column_name': 'mat_planning_status', 'source_class_name': None, 'source_column_name': 'mat_planning_status'}]}],
+                          metadata={'chartOptions': {'legend': {'data': [], 'left': 'center', 'orient': 'horizontal', 'show': True}, 'series': [{'datasetIndex': None, 'encode': {'itemName': 'mat_planning_status', 'value': 'count', 'x': '', 'y': ''}, 'name': '', 'type': 'pie'}], 'title': {'left': 'left', 'subtext': '', 'text': 'DRP Status', 'top': 'top'}, 'tooltip': {'formatter': '', 'show': True, 'trigger': 'item'}, 'xAxis': [{'name': '', 'show': False, 'type': 'category'}], 'yAxis': [{'name': '', 'show': False, 'type': 'value'}]}},
                           drill_downs={'0': {'name': 'Month', 'value': 'PlanmaxHeaders.month_name'}, '1': {'name': 'Group', 'value': 'PlanmaxHeaders.group_name'}, '2': {'name': 'Region', 'value': 'PlanmaxHeaders.region_of_order'}, '3': {'name': 'Product Category', 'value': 'PlanmaxHeaders.product_category'}, '4': {'name': 'MFG Organization', 'value': 'PlanmaxHeaders.mfg_organization_code'}, '5': {'name': 'Planner', 'value': 'PlanmaxHeaders.planner'}, '6': {'name': 'Regional Commercial', 'value': 'PlanmaxHeaders.regional_commercial'}},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
