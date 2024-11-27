@@ -103,4 +103,44 @@ class PlanningBasic(Dashboard):
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
 
-    dashboard_filters = FilterComponent(filter_fields={0: std_nstd})
+    group_name = FilterField(display_name="Group Name",
+                                   values="Select(func.distinct(PlanmaxHeaders.group_name).label('value'), PlanmaxHeaders.group_name.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+
+    region_of_order = FilterField(display_name="Region",
+                                   values="Select(func.distinct(PlanmaxHeaders.region_of_order).label('value'), PlanmaxHeaders.region_of_order.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+    
+    product_category = FilterField(display_name="Product Category",
+                                   values="Select(func.distinct(PlanmaxHeaders.product_category).label('value'), PlanmaxHeaders.product_category.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+    mfg_organization_code = FilterField(display_name="MFG Org",
+                                   values="Select(func.distinct(PlanmaxHeaders.mfg_organization_code).label('value'), PlanmaxHeaders.mfg_organization_code.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+
+    planner = FilterField(display_name="Planner",
+                                   values="Select(func.distinct(PlanmaxHeaders.planner).label('value'), PlanmaxHeaders.planner.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+    regional_commercial = FilterField(display_name="Regional Commercial",
+                                   values="Select(func.distinct(PlanmaxHeaders.regional_commercial).label('value'), PlanmaxHeaders.regional_commercial.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+
+    dashboard_filters = FilterComponent(filter_fields={0: std_nstd,
+                                                      1: group_name,
+                                                      2: region_of_order,
+                                                      3: product_category,
+                                                      4: mfg_organization_code,
+                                                      5: planner,
+                                                      6: regional_commercial})
