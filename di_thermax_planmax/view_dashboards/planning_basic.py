@@ -149,4 +149,5 @@ class PlanningBasic(Dashboard):
                                                       3: product_category,
                                                       4: mfg_organization_code,
                                                       5: planner,
-                                                      6: regional_commercial})
+                                                      6: regional_commercial,
+                                                      7: prn_creation_status})
