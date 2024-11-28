@@ -11,7 +11,7 @@ class QProductionReleaseNoteStV(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "q_production_release_note_st_v"
     __table_args__ = {"schema": "apps", "extend_existing": True}
-    __table_properties__ = {"ui_x_pos": 0, "ui_y_pos": 0, "colour": "#F2F3F5"}
+    __table_properties__ = {"ui_x_pos": -1201.8595423679058, "ui_y_pos": 407.37632009256833, "colour": "#F2F3F5"}
 
     plan_id: Mapped[str] = mapped_column('plan_id', Numeric, primary_key=True, info={"column_metadata": ColumnMetadata()})
     plan_name: Mapped[str] = mapped_column('plan_name', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
