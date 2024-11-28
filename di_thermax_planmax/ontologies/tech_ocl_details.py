@@ -16,7 +16,7 @@ from di_thermax_planmax.erd.xxtmx.xxtmx_tech_ocl_specs_tbl import XxtmxTechOclSp
 class TechOCLDetails(ERDBase):
     # __table__ = (join(XxplanmaxHeaderDtls, XxplanmaxCustDtls, XxplanmaxHeaderDtls.XxplanmaxCustDtls_site_use_id.expression)
     #              .join(OrgOrganizationDefinitions, XxplanmaxHeaderDtls.OrgOrganizationDefinitions_organization_id.expression))
-    __table__ = XxplanmaxDrpDetails.__table__
-    # __table__ = join(XxplanmaxHeaderDtls, XxplanmaxCalender, XxplanmaxHeaderDtls.XxplanmaxCalender_day_id.expression)
+    # __table__ = XxplanmaxDrpDetails.__table__
+    __table__ = join(XxtmxTechOclMstrTbl, XxtmxTechOclSpecsTbl, XxtmxTechOclMstrTbl.XxtmxTechOclSpecsTbl_otm_header_id.expression)
     __table_properties__ = {"ui_x_pos": 503.13734483912555, "ui_y_pos": 891.5731584714746, "colour": "#F2F3F5"}
 
