@@ -36,6 +36,4 @@ class XxtmxTechOclMstrTbl(ERDBase):
     otm_sales_order_line_id: Mapped[str] = mapped_column('otm_sales_order_line_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     otm_sales_order_line_num: Mapped[str] = mapped_column('otm_sales_order_line_num', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
-
-
-
+    XxtmxTechOclSpecsTbl_otm_header_id: Mapped["XxtmxTechOclSpecsTbl"] = relationship(back_populates="XxtmxTechOclMstrTbl_otm_header_id", primaryjoin="XxtmxTechOclMstrTbl.otm_header_id==XxtmxTechOclSpecsTbl.otm_header_id", foreign_keys="[XxtmxTechOclSpecsTbl.otm_header_id]", viewonly=True) 
