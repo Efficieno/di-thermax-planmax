@@ -31,6 +31,7 @@ class XxtmxTechOclSpecsTbl(ERDBase):
     last_update_login: Mapped[str] = mapped_column('last_update_login', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     otos_remark: Mapped[str] = mapped_column('otos_remark', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+    XxtmxTechOclMstrTbl_otm_header_id: Mapped["XxtmxTechOclMstrTbl"] = relationship(back_populates="XxtmxTechOclSpecsTbl_otm_header_id", primaryjoin="XxtmxTechOclMstrTbl.otm_header_id==XxtmxTechOclSpecsTbl.otm_header_id", foreign_keys="[XxtmxTechOclSpecsTbl.otm_header_id]", viewonly=True) 
 
 
 
