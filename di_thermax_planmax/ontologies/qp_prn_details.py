@@ -11,7 +11,7 @@ from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_calender import XxplanmaxCal
 from di_thermax_planmax.erd.xxtmx_planmax.xxplanmax_drp_details import XxplanmaxDrpDetails
 from di_thermax_planmax.erd.xxtmx.xxtmx_tech_ocl_mstr_tbl import XxtmxTechOclMstrTbl
 from di_thermax_planmax.erd.xxtmx.xxtmx_tech_ocl_specs_tbl import XxtmxTechOclSpecsTbl
-from di_thermax_planmax.apps.q_production_release_note_st_v import QProductionReleaseNoteStV
+from di_thermax_planmax.erd.apps.q_production_release_note_st_v import QProductionReleaseNoteStV
 
 
 class QPPRNDetails(ERDBase):
