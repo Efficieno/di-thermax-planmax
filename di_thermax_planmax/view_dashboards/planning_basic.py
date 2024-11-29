@@ -8,21 +8,21 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
-from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.qp_di_details import QPDIDetails
 from di_thermax_planmax.ontologies.qp_prn_details import QPPRNDetails
 from di_thermax_planmax.ontologies.tech_ocl_details import TechOCLDetails
+from di_thermax_planmax.ontologies.drp_details import PlanmaxDRPDetails
 
 
 class PlanningBasic(Dashboard):
     __dashboard_name__ = "planning_basic"
     __dashboard_description__ = "planning basic dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_p0ZNWAd17'], 'activeView': 'metrics_p0ZNWAd17', 'id': '1'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_jGacS5A2T'], 'activeView': 'metrics_jGacS5A2T', 'id': '5'}, 'size': 142}], 'size': 508}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_u6_jxLXFw'], 'activeView': 'metrics_u6_jxLXFw', 'id': '2'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_AIWiSzSZ8'], 'activeView': 'metrics_AIWiSzSZ8', 'id': '6'}, 'size': 142}], 'size': 508}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_40vIQtFUN'], 'activeView': 'metrics_40vIQtFUN', 'id': '3'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_kG9ToXlEW'], 'activeView': 'metrics_kG9ToXlEW', 'id': '7'}, 'size': 142}], 'size': 510.578125}], 'size': 284}, {'type': 'leaf', 'data': {'views': ['tables_MeISbdWFJ', 'tables_CRuRvic1X'], 'activeView': 'tables_CRuRvic1X', 'id': '4'}, 'size': 320}, {'type': 'leaf', 'data': {'views': ['tables_84txqMuVV', 'tables__P2hEOBa_', 'tables_lXOrD4Xjc'], 'activeView': 'tables_84txqMuVV', 'id': '8'}, 'size': 141.46875}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_p0ZNWAd17'], 'activeView': 'metrics_p0ZNWAd17', 'id': '1'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_jGacS5A2T'], 'activeView': 'metrics_jGacS5A2T', 'id': '5'}, 'size': 142}], 'size': 508}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_u6_jxLXFw'], 'activeView': 'metrics_u6_jxLXFw', 'id': '2'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_AIWiSzSZ8'], 'activeView': 'metrics_AIWiSzSZ8', 'id': '6'}, 'size': 142}], 'size': 508}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_40vIQtFUN'], 'activeView': 'metrics_40vIQtFUN', 'id': '3'}, 'size': 142}, {'type': 'leaf', 'data': {'views': ['metrics_kG9ToXlEW'], 'activeView': 'metrics_kG9ToXlEW', 'id': '7'}, 'size': 142}], 'size': 510.578125}], 'size': 284}, {'type': 'leaf', 'data': {'views': ['tables_MeISbdWFJ', 'tables_CRuRvic1X'], 'activeView': 'tables_CRuRvic1X', 'id': '4'}, 'size': 320}, {'type': 'leaf', 'data': {'views': ['tables_84txqMuVV', 'tables__P2hEOBa_', 'tables_lXOrD4Xjc', 'tables_7PntEiDCi'], 'activeView': 'tables_7PntEiDCi', 'id': '8'}, 'size': 141.46875}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 4
+    __active_group__ = 8
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
@@ -39,7 +39,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_jGacS5A2T = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED')""",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values (unit/di/invoice)",
@@ -65,7 +65,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_AIWiSzSZ8 = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.group_name == 'HO')""",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.group_name == 'HO')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values (unit/di/invoice)",
@@ -91,7 +91,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_kG9ToXlEW = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))""",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values (unit/di/invoice)",
@@ -128,10 +128,9 @@ class PlanningBasic(Dashboard):
                           actions=[{'name': 'Update Order Fields', 'value': 'UpdateOrderFields'}],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-
     tables_84txqMuVV = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(QPDIDetails.di_number,
+                          query="Select(QPDIDetails.di_number,
 QPDIDetails.sales_order_no,
 QPDIDetails.customer,
 QPDIDetails.xx_project_number,
@@ -216,7 +215,7 @@ QPDIDetails.send_email,
 QPDIDetails.cgst,
 QPDIDetails.cgst_percentage,
 QPDIDetails.sgst,
-QPDIDetails.sgst_percentage)""",
+QPDIDetails.sgst_percentage)",
                           data_objects={'QPDIDetails': 'di_thermax_planmax.ontologies.qp_di_details'},
                           header="DI Details",
                           description="DI Details",
@@ -229,7 +228,7 @@ QPDIDetails.sgst_percentage)""",
                           details=[])
     tables__P2hEOBa_ = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(QPPRNDetails.sales_order_number,
+                          query="Select(QPPRNDetails.sales_order_number,
         QPPRNDetails.creation_date,
         QPPRNDetails.prn_approved_date,
         QPPRNDetails.revised_dely_reqd_date,
@@ -239,7 +238,7 @@ QPDIDetails.sgst_percentage)""",
         QPPRNDetails.prn_number,
         QPPRNDetails.reporting_employee,
         QPPRNDetails.created_by,
-        QPPRNDetails.group_route)""",
+        QPPRNDetails.group_route)",
                           data_objects={'QPPRNDetails': 'di_thermax_planmax.ontologies.qp_prn_details'},
                           header="PRN Details",
                           description="PRN Details",
@@ -252,7 +251,7 @@ QPDIDetails.sgst_percentage)""",
                           details=[])
     tables_lXOrD4Xjc = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(TechOCLDetails.otm_header_id,
+                          query="Select(TechOCLDetails.otm_header_id,
        TechOCLDetails.otos_section,
        TechOCLDetails.otos_param_name,
        TechOCLDetails.otos_value_1,
@@ -260,13 +259,26 @@ QPDIDetails.sgst_percentage)""",
        TechOCLDetails.otm_tech_ocl_amd_no,
        TechOCLDetails.otm_tech_ocl_amd_date,
        TechOCLDetails.otos_value_2,
-       TechOCLDetails.otos_value_3)""",
+       TechOCLDetails.otos_value_3)",
                           data_objects={'TechOCLDetails': 'di_thermax_planmax.ontologies.tech_ocl_details'},
                           header="Tech OCL",
                           description="Tech OCL",
                           content_component="mediator",
                           relations=[],
                           metadata={'additionalFieldVisible': True, 'columnOrder': ['otm_header_id', 'otos_section', 'otos_param_name', 'otos_value_1', 'otos_remark', 'otm_tech_ocl_amd_no', 'otm_tech_ocl_amd_date', 'otos_value_2', 'otos_value_3'], 'columns': [{'accessorKey': 'otm_header_id', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxtmx_tech_ocl_mstr_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'NUMERIC', 'displayName': 'otm_header_id', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otm_header_id', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otm_header_id', 'nullable': False, 'pin': 'left', 'primaryKey': True, 'size': 200, 'tableClass': 'XxtmxTechOclMstrTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_section', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_section', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_section', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_section', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_param_name', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_param_name', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_param_name', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_param_name', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_value_1', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_value_1', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_value_1', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_value_1', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_remark', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_remark', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_remark', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_remark', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otm_tech_ocl_amd_no', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxtmx_tech_ocl_mstr_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'NUMERIC', 'displayName': 'otm_tech_ocl_amd_no', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otm_tech_ocl_amd_no', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otm_tech_ocl_amd_no', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclMstrTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otm_tech_ocl_amd_date', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'DateTime', 'databaseTableName': 'xxtmx_tech_ocl_mstr_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'DATETIME', 'displayName': 'otm_tech_ocl_amd_date', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otm_tech_ocl_amd_date', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otm_tech_ocl_amd_date', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclMstrTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_value_2', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_value_2', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_value_2', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_value_2', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}, {'accessorKey': 'otos_value_3', 'autoincrement': 'auto', 'dataObject': 'TechOCLDetails', 'dataType': 'String', 'databaseTableName': 'xxtmx_tech_ocl_specs_tbl', 'databaseTableSchema': 'xxtmx', 'dbDataType': 'VARCHAR', 'displayName': 'otos_value_3', 'enableColumnFilter': True, 'enableEditing': True, 'enableResizing': True, 'enableSorting': False, 'function': None, 'header': 'otos_value_3', 'muiTableBodyCellProps': {'align': 'left'}, 'muiTableHeadCellProps': {'align': 'left'}, 'name': 'otos_value_3', 'nullable': False, 'pin': 'left', 'primaryKey': False, 'size': 200, 'tableClass': 'XxtmxTechOclSpecsTbl', 'unique': None, 'visible': True, 'visibleInShowHideMenu': True}], 'enableResizing': True},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    tables_7PntEiDCi = PanelComponent(component_type="tables",
+                          name="Demo Header",
+                          query="Select(PlanmaxDRPDetails.org_code, PlanmaxDRPDetails.organization_id, PlanmaxDRPDetails.project_id, PlanmaxDRPDetails.project_name, PlanmaxDRPDetails.item_code, PlanmaxDRPDetails.item_description, PlanmaxDRPDetails.quantity, PlanmaxDRPDetails.item_type, PlanmaxDRPDetails.order_type, PlanmaxDRPDetails.job_name, PlanmaxDRPDetails.pr_num, PlanmaxDRPDetails.action)",
+                          data_objects={'PlanmaxDRPDetails': 'di_thermax_planmax.ontologies.drp_details'},
+                          header="DRP Details",
+                          description="DRP Details",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'additionalFieldVisible': True, 'columnOrder': [], 'enableResizing': True, 'columns': [{'accessorKey': 'org_code', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'org_code', 'nullable': False, 'primaryKey': True, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'org_code', 'displayName': 'org_code', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'organization_id', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'NUMERIC', 'function': None, 'name': 'organization_id', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'organization_id', 'displayName': 'organization_id', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'project_id', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'NUMERIC', 'function': None, 'name': 'project_id', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'project_id', 'displayName': 'project_id', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'project_name', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'project_name', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'project_name', 'displayName': 'project_name', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'item_code', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'item_code', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'item_code', 'displayName': 'item_code', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'item_description', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'item_description', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'item_description', 'displayName': 'item_description', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'quantity', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'NUMERIC', 'function': None, 'name': 'quantity', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'quantity', 'displayName': 'quantity', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'item_type', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'item_type', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'item_type', 'displayName': 'item_type', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'order_type', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'Numeric', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'NUMERIC', 'function': None, 'name': 'order_type', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'order_type', 'displayName': 'order_type', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'job_name', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'job_name', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'job_name', 'displayName': 'job_name', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'pr_num', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'pr_num', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'pr_num', 'displayName': 'pr_num', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}, {'accessorKey': 'action', 'autoincrement': 'auto', 'dataObject': 'PlanmaxDRPDetails', 'dataType': 'String', 'databaseTableName': 'xxplanmax_drp_details', 'databaseTableSchema': 'xxtmx_planmax', 'dbDataType': 'VARCHAR', 'function': None, 'name': 'action', 'nullable': False, 'primaryKey': False, 'tableClass': 'PlanmaxDRPDetails', 'unique': None, 'header': 'action', 'displayName': 'action', 'visibleInShowHideMenu': True, 'size': 200, 'pin': 'left', 'visible': True, 'enableEditing': True, 'enableSorting': False, 'enableResizing': True, 'enableColumnFilter': True, 'muiTableHeadCellProps': {'align': 'left'}, 'muiTableBodyCellProps': {'align': 'left'}}]},
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
