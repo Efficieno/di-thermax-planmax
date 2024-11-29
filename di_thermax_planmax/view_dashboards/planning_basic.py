@@ -8,10 +8,14 @@ from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.qp_di_details import QPDIDetails
 from di_thermax_planmax.ontologies.qp_prn_details import QPPRNDetails
 from di_thermax_planmax.ontologies.tech_ocl_details import TechOCLDetails
 from di_thermax_planmax.ontologies.drp_details import PlanmaxDRPDetails
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
+from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 from di_thermax_planmax.ontologies.planmax_headers import PlanmaxHeaders
 
@@ -20,11 +24,11 @@ class PlanningBasic(Dashboard):
     __dashboard_name__ = "planning_basic"
     __dashboard_description__ = "planning basic dashboard"
 
-    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_p0ZNWAd17'], 'activeView': 'metrics_p0ZNWAd17', 'id': '1'}, 'size': 102}, {'type': 'leaf', 'data': {'views': ['metrics_jGacS5A2T'], 'activeView': 'metrics_jGacS5A2T', 'id': '5'}, 'size': 101}], 'size': 297}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_u6_jxLXFw'], 'activeView': 'metrics_u6_jxLXFw', 'id': '2'}, 'size': 102}, {'type': 'leaf', 'data': {'views': ['metrics_AIWiSzSZ8'], 'activeView': 'metrics_AIWiSzSZ8', 'id': '6'}, 'size': 101}], 'size': 442}, {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_40vIQtFUN'], 'activeView': 'metrics_40vIQtFUN', 'id': '3'}, 'size': 314}, {'type': 'leaf', 'data': {'views': ['metrics_D_CRegxWN'], 'activeView': 'metrics_D_CRegxWN', 'id': '9'}, 'size': 473.578125}], 'size': 102}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_kG9ToXlEW'], 'activeView': 'metrics_kG9ToXlEW', 'id': '7'}, 'size': 314}, {'type': 'leaf', 'data': {'views': ['metrics_WX6NYq9CJ'], 'activeView': 'metrics_WX6NYq9CJ', 'id': '10'}, 'size': 473.578125}], 'size': 101}], 'size': 787.578125}], 'size': 203}, {'type': 'leaf', 'data': {'views': ['tables_81K14s8Xa', 'tables_xAteJmw2E'], 'activeView': 'tables_xAteJmw2E', 'id': '4'}, 'size': 293}, {'type': 'leaf', 'data': {'views': ['tables_84txqMuVV', 'tables__P2hEOBa_', 'tables_lXOrD4Xjc', 'tables_7PntEiDCi'], 'activeView': 'tables_7PntEiDCi', 'id': '8'}, 'size': 249.46875}], 'size': 1526.578125}
+    __grid_root_element__ = {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_p0ZNWAd17'], 'activeView': 'metrics_p0ZNWAd17', 'id': '1'}, 'size': 100}, {'type': 'leaf', 'data': {'views': ['metrics_jGacS5A2T'], 'activeView': 'metrics_jGacS5A2T', 'id': '5'}, 'size': 100}], 'size': 248}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_40vIQtFUN'], 'activeView': 'metrics_40vIQtFUN', 'id': '3'}, 'size': 100}, {'type': 'leaf', 'data': {'views': ['metrics_kG9ToXlEW'], 'activeView': 'metrics_kG9ToXlEW', 'id': '7'}, 'size': 100}], 'size': 290}, {'type': 'branch', 'data': [{'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_D_CRegxWN'], 'activeView': 'metrics_D_CRegxWN', 'id': '9'}, 'size': 246}, {'type': 'leaf', 'data': {'views': ['metrics_1yEltge1V'], 'activeView': 'metrics_1yEltge1V', 'id': '13'}, 'size': 246}, {'type': 'leaf', 'data': {'views': ['metrics_QocLnWVs3'], 'activeView': 'metrics_QocLnWVs3', 'id': '14'}, 'size': 246}, {'type': 'leaf', 'data': {'views': ['metrics_u6_jxLXFw'], 'activeView': 'metrics_u6_jxLXFw', 'id': '2'}, 'size': 250.578125}], 'size': 100}, {'type': 'branch', 'data': [{'type': 'leaf', 'data': {'views': ['metrics_WX6NYq9CJ'], 'activeView': 'metrics_WX6NYq9CJ', 'id': '10'}, 'size': 247}, {'type': 'leaf', 'data': {'views': ['metrics_aAylUgvxA'], 'activeView': 'metrics_aAylUgvxA', 'id': '12'}, 'size': 247}, {'type': 'leaf', 'data': {'views': ['metrics_PPKe1QH2J'], 'activeView': 'metrics_PPKe1QH2J', 'id': '15'}, 'size': 247}, {'type': 'leaf', 'data': {'views': ['metrics_1ioq69E6l'], 'activeView': 'metrics_1ioq69E6l', 'id': '16'}, 'size': 247.578125}], 'size': 100}], 'size': 988.578125}], 'size': 200}, {'type': 'leaf', 'data': {'views': ['tables_81K14s8Xa', 'tables_xAteJmw2E'], 'activeView': 'tables_xAteJmw2E', 'id': '4'}, 'size': 296}, {'type': 'leaf', 'data': {'views': ['tables_84txqMuVV', 'tables__P2hEOBa_', 'tables_lXOrD4Xjc', 'tables_7PntEiDCi'], 'activeView': 'tables_7PntEiDCi', 'id': '8'}, 'size': 249.46875}], 'size': 1526.578125}
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 5
+    __active_group__ = 2
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
@@ -41,7 +45,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_jGacS5A2T = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status.not_in(['CANCELLED', 'CLOSED']))""",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status.not_in(['CANCELLED', 'CLOSED']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values in Lakhs (Unit/DI/Invoice)",
@@ -65,19 +69,6 @@ class PlanningBasic(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    metrics_AIWiSzSZ8 = PanelComponent(component_type="metrics",
-                          name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.group_name == 'HO')""",
-                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header=" ",
-                          description="Values in Lakhs (Unit/DI/Invoice)",
-                          content_component="mediator",
-                          relations=[],
-                          metadata={'additionalFieldVisible': True, 'display': '1000', 'fontSize': '1', 'fontStyle': []},
-                          drill_downs={},
-                          actions=[],
-                          inline_actions={'name': '', 'value': ''},
-                          details=[])
     metrics_40vIQtFUN = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.split_line_number == 1).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
@@ -91,9 +82,35 @@ class PlanningBasic(Dashboard):
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
+    metrics_D_CRegxWN = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status == 'CLOSED').filter(PlanmaxHeaders.split_line_number == 1)",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="Total Closed Orders",
+                          description="Demo Description",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'additionalFieldVisible': True, 'display': '1000', 'fontSize': '1', 'fontStyle': []},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
     metrics_kG9ToXlEW = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))""",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.order_status.in_(['OPEN', 'FULFILLED', 'HOLD', 'HOLD_POST PRN']))",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header=" ",
+                          description="Values in Lakhs (Unit/DI/Invoice)",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'additionalFieldVisible': True, 'display': '1000', 'fontSize': '1', 'fontStyle': []},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    metrics_WX6NYq9CJ = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status == 'CLOSED')",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values in Lakhs (Unit/DI/Invoice)",
@@ -132,7 +149,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     tables_84txqMuVV = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(QPDIDetails.di_number,
+                          query="Select(QPDIDetails.di_number,
 QPDIDetails.sales_order_no,
 QPDIDetails.customer,
 QPDIDetails.xx_project_number,
@@ -217,7 +234,7 @@ QPDIDetails.send_email,
 QPDIDetails.cgst,
 QPDIDetails.cgst_percentage,
 QPDIDetails.sgst,
-QPDIDetails.sgst_percentage)""",
+QPDIDetails.sgst_percentage)",
                           data_objects={'QPDIDetails': 'di_thermax_planmax.ontologies.qp_di_details'},
                           header="DI Details",
                           description="DI Details",
@@ -230,7 +247,7 @@ QPDIDetails.sgst_percentage)""",
                           details=[])
     tables__P2hEOBa_ = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(QPPRNDetails.sales_order_number,
+                          query="Select(QPPRNDetails.sales_order_number,
         QPPRNDetails.creation_date,
         QPPRNDetails.prn_approved_date,
         QPPRNDetails.revised_dely_reqd_date,
@@ -240,7 +257,7 @@ QPDIDetails.sgst_percentage)""",
         QPPRNDetails.prn_number,
         QPPRNDetails.reporting_employee,
         QPPRNDetails.created_by,
-        QPPRNDetails.group_route)""",
+        QPPRNDetails.group_route)",
                           data_objects={'QPPRNDetails': 'di_thermax_planmax.ontologies.qp_prn_details'},
                           header="PRN Details",
                           description="PRN Details",
@@ -253,7 +270,7 @@ QPDIDetails.sgst_percentage)""",
                           details=[])
     tables_lXOrD4Xjc = PanelComponent(component_type="tables",
                           name="Demo Header",
-                          query="""Select(TechOCLDetails.otm_header_id,
+                          query="Select(TechOCLDetails.otm_header_id,
        TechOCLDetails.otos_section,
        TechOCLDetails.otos_param_name,
        TechOCLDetails.otos_value_1,
@@ -261,7 +278,7 @@ QPDIDetails.sgst_percentage)""",
        TechOCLDetails.otm_tech_ocl_amd_no,
        TechOCLDetails.otm_tech_ocl_amd_date,
        TechOCLDetails.otos_value_2,
-       TechOCLDetails.otos_value_3)""",
+       TechOCLDetails.otos_value_3)",
                           data_objects={'TechOCLDetails': 'di_thermax_planmax.ontologies.tech_ocl_details'},
                           header="Tech OCL",
                           description="Tech OCL",
@@ -285,12 +302,12 @@ QPDIDetails.sgst_percentage)""",
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    metrics_D_CRegxWN = PanelComponent(component_type="metrics",
+    metrics_aAylUgvxA = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status == 'CLOSED').filter(PlanmaxHeaders.split_line_number == 1)",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.mat_planning_status != 'C').filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header="Total Closed Orders",
-                          description="Demo Description",
+                          header="Pending DRP",
+                          description=" ",
                           content_component="mediator",
                           relations=[],
                           metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
@@ -298,12 +315,51 @@ QPDIDetails.sgst_percentage)""",
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
                           details=[])
-    metrics_WX6NYq9CJ = PanelComponent(component_type="metrics",
+    metrics_1yEltge1V = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status == 'CLOSED')""",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_intake_status != 'C').filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
-                          header=" ",
-                          description="Values in Lakhs (Unit/DI/Invoice)",
+                          header="Order Intake Pending",
+                          description=" ",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    metrics_QocLnWVs3 = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.bom_common_status != 'C').filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="Pending BOM Common",
+                          description=" ",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    metrics_PPKe1QH2J = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.reflection_config_status != 'C').filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="Pending Reflection",
+                          description=" ",
+                          content_component="mediator",
+                          relations=[],
+                          metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
+                          drill_downs={},
+                          actions=[],
+                          inline_actions={'name': '', 'value': ''},
+                          details=[])
+    metrics_1ioq69E6l = PanelComponent(component_type="metrics",
+                          name="Demo Header",
+                          query="Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.prn_creation_status.not_in(['C', 'NA'])).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))",
+                          data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                          header="PRN Pending",
+                          description=" ",
                           content_component="mediator",
                           relations=[],
                           metadata={'display': '1000', 'fontSize': '1', 'fontStyle': [], 'additionalFieldVisible': True},
