@@ -163,8 +163,10 @@ class XxplanmaxHeaderDtls(ERDBase):
     ordered_item_id: Mapped[str] = mapped_column('ordered_item_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     sos_item_id: Mapped[str] = mapped_column('sos_item_id', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
     reflection_completion_date: Mapped[str] = mapped_column('reflection_completion_date', DateTime, primary_key=False, info={"column_metadata": ColumnMetadata()})
-    remarks: Mapped[str] = mapped_column('remarks', String, primary_key=False, info={"column_metadata": ColumnMetadata()}) 
-    split_line_number: Mapped[str] = mapped_column('split_line_number', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})         
+    remarks: Mapped[str] = mapped_column('remarks', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
+    split_line_number: Mapped[str] = mapped_column('split_line_number', Numeric, primary_key=False, info={"column_metadata": ColumnMetadata()})
+
+        
 
     
 
@@ -204,6 +206,11 @@ class XxplanmaxHeaderDtls(ERDBase):
     
 
     XxplanmaxLineDtls_sales_order_header_id: Mapped["XxplanmaxLineDtls"] = relationship(back_populates="XxplanmaxHeaderDtls_sales_order_header_id", primaryjoin="XxplanmaxLineDtls.sales_order_header_id==XxplanmaxHeaderDtls.sales_order_header_id", foreign_keys="[XxplanmaxLineDtls.sales_order_header_id]", viewonly=True)
+        
+
+    
+
+    XxplanmaxCalender_day_id: Mapped["XxplanmaxCalender"] = relationship(back_populates="XxplanmaxHeaderDtls_curr_thx_commitment_date", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.curr_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.curr_thx_commitment_date]", viewonly=True)
 
 
-    XxplanmaxCalender_day_id: Mapped["XxplanmaxCalender"] = relationship(back_populates="XxplanmaxHeaderDtls_curr_thx_commitment_date", primaryjoin="XxplanmaxCalender.day_id==XxplanmaxHeaderDtls.curr_thx_commitment_date", foreign_keys="[XxplanmaxHeaderDtls.curr_thx_commitment_date]", viewonly=True) 
+
