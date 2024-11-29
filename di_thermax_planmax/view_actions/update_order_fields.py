@@ -110,7 +110,7 @@ class UpdateOrderFields(Action):
   
     oc_number = Parameter(display_name="OC Number", param_type=None, data_type=Integer, editable=True, show_on_form=True, values=None)
 
-    remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
+    # remarks = Parameter(display_name="Remarks", param_type=None, data_type=String, editable=True, show_on_form=True, values=None)
 
     @classmethod
     def execute_action(cls):
