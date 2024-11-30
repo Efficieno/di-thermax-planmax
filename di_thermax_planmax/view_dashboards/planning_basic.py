@@ -139,7 +139,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=[])
+                          details=["tables_k1ozhY_wr"])
     metrics_WX6NYq9CJ = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status == 'CLOSED')""",
