@@ -178,7 +178,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=[])
+                          details=["tables_C32vUI4jK"])
     metrics_1ioq69E6l = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.prn_creation_status.not_in(['C', 'NA'])).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))""",
