@@ -113,7 +113,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=[])
+                          details=["tables_HvH3GHR7e"])
     metrics_QocLnWVs3 = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.bom_common_status == 'P').filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.std_nstd == 'NSTD').filter(PlanmaxHeaders.group_name != 'HO')""",
