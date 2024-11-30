@@ -35,7 +35,7 @@ class PlanningBasic(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 4
+    __active_group__ = 3
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
@@ -65,7 +65,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_40vIQtFUN = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.split_line_number == 1).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'HOLD', 'HOLD_POST PRN']))""",
+                          query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.split_line_number == 1).filter(PlanmaxHeaders.order_status.in_(['OPEN', 'HOLD', 'HOLD_POST PRN']))""",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header="Total Rolling Plan",
                           description=" ",
