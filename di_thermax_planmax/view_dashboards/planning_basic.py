@@ -100,7 +100,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=[])
+                          details=["tables_3n9PUXGGO"])
     metrics_1yEltge1V = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_intake_status != 'C').filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))""",
