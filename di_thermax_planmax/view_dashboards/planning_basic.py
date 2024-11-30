@@ -35,7 +35,7 @@ class PlanningBasic(Dashboard):
     __grid_width__ = 1526.578125
     __grid_height__ = 745.46875
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 8
+    __active_group__ = 5
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
@@ -52,7 +52,7 @@ class PlanningBasic(Dashboard):
                           details=[])
     metrics_jGacS5A2T = PanelComponent(component_type="metrics",
                           name="Demo Header",
-                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || '/' || round(sum(di_value)/100000, 2) || '/' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status.not_in(['CANCELLED', 'CLOSED']))""",
+                          query="""Select(literal_column("round(sum(total_unit_value_in_inr)/100000, 2) || ' / ' || round(sum(di_value)/100000, 2) || ' / ' || round(sum(invoiced_value)/100000, 2) ")).filter(PlanmaxHeaders.order_status.not_in(['CANCELLED', 'CLOSED']))""",
                           data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                           header=" ",
                           description="Values in Lakhs (Unit/DI/Invoice)",
