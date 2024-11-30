@@ -165,7 +165,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=[])
+                          details=["tables_vlndGn9kq"])
     metrics_PPKe1QH2J = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.reflection_config_status == 'P').filter(PlanmaxHeaders.prn_creation_status.in_(['C', 'NA'])).filter(PlanmaxHeaders.order_status.in_(['OPEN'])).filter(PlanmaxHeaders.group_name != 'HO')""",
