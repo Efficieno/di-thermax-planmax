@@ -616,4 +616,4 @@ PlanmaxHeaders.di_date,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
 
-    dashboard_filters = FilterComponent(filter_fields={0: std_nstd,1: group_name,2: region_of_order,3: product_category,4: mfg_organization_code,5: planner,6: regional_commercial,7: prn_creation_status})
+    dashboard_filters = FilterComponent(filter_fields={0: region_of_order,1: group_name,2: product_category,3: mfg_organization_code,4: std_nstd,5: planner,6: regional_commercial,7: prn_creation_status})
