@@ -616,4 +616,10 @@ PlanmaxHeaders.di_date,
                                    data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
                                    data_type=String)
 
-    dashboard_filters = FilterComponent(filter_fields={0: region_of_order,1: group_name,2: product_category,3: mfg_organization_code,4: std_nstd,5: planner,6: regional_commercial,7: prn_creation_status})
+    project_segment1 = FilterField(display_name="Project",
+                                   values="Select(func.distinct(PlanmaxHeaders.project_segment1).label('value'), PlanmaxHeaders.project_segment1.label('label'))",
+                                   multiselect=False,
+                                   data_objects={'PlanmaxHeaders': 'di_thermax_planmax.ontologies.planmax_headers'},
+                                   data_type=String)
+    
+    dashboard_filters = FilterComponent(filter_fields={0: region_of_order,1: group_name,2: product_category,3: mfg_organization_code,4: std_nstd,5: planner,6: regional_commercial,7: prn_creation_status, 8: project_segment1})
