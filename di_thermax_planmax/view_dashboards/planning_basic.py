@@ -35,7 +35,7 @@ class PlanningBasic(Dashboard):
     __grid_width__ = 1197.25
     __grid_height__ = 674.0625
     __grid_orientation__ = "VERTICAL"
-    __active_group__ = 4
+    __active_group__ = 9
 
     metrics_p0ZNWAd17 = PanelComponent(component_type="metrics",
                           name="Total Orders",
