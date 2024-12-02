@@ -33,7 +33,7 @@ if TYPE_CHECKING:
 class MtlSystemItemsB(ERDBase):
     __data_object_type__ = "data_object"
     __tablename__ = "mtl_system_items_b"
-    __table_args__ = {"schema": "inv", "extend_existing": True}
+    __table_args__ = {"schema": "xxtmx_planmax", "extend_existing": True}
     __table_properties__ = {"ui_x_pos": 894.5002365112305, "ui_y_pos": 742.5576133728027, "colour": "#F2F3F5"}
 
     inventory_item_id: Mapped[str] = mapped_column('inventory_item_id', Integer, primary_key=True, info={"column_metadata": ColumnMetadata()})

@@ -1,12 +1,12 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Date, Float, Integer, String
+from sqlalchemy import Date, Float, Integer, String, Numeric, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
-
 if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
 
 
@@ -26,6 +26,11 @@ class HrOperatingUnits(ERDBase):
     default_legal_context_id: Mapped[str] = mapped_column('default_legal_context_id', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
     usable_flag: Mapped[str] = mapped_column('usable_flag', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxHeaderDtls_operating_unit_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="HrOperatingUnits_organization_id", primaryjoin="XxplanmaxHeaderDtls.operating_unit_id==HrOperatingUnits.organization_id", foreign_keys="[HrOperatingUnits.organization_id]", viewonly=True)
         
 
     

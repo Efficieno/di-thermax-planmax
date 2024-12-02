@@ -1,11 +1,13 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Date, Float, Integer, String
+from sqlalchemy import Date, Float, Integer, String, Numeric, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from efficieno.components.erd_objects import ERDBase, ColumnMetadata
 
 if TYPE_CHECKING:
+    from ..xxtmx_planmax.xxplanmax_line_dtls import XxplanmaxLineDtls
+    from ..xxtmx_planmax.xxplanmax_header_dtls import XxplanmaxHeaderDtls
     from ..inv.mtl_system_items_b import MtlSystemItemsB
     from ..apps.org_organization_definitions import OrgOrganizationDefinitions
     from ..wsh.wsh_delivery_details import WshDeliveryDetails
@@ -200,6 +202,16 @@ class OeOrderHeadersAll(ERDBase):
     csr_user_id: Mapped[str] = mapped_column('csr_user_id', Integer, primary_key=False, info={"column_metadata": ColumnMetadata()})
     cancel_unshipped_lines: Mapped[str] = mapped_column('cancel_unshipped_lines', String, primary_key=False, info={"column_metadata": ColumnMetadata()})
 
+        
+
+    
+
+    XxplanmaxLineDtls_sales_order_header_id: Mapped["XxplanmaxLineDtls"] = relationship(back_populates="OeOrderHeadersAll_header_id", primaryjoin="XxplanmaxLineDtls.sales_order_header_id==OeOrderHeadersAll.header_id", foreign_keys="[OeOrderHeadersAll.header_id]", viewonly=True)
+        
+
+    
+
+    XxplanmaxHeaderDtls_sales_order_header_id: Mapped["XxplanmaxHeaderDtls"] = relationship(back_populates="OeOrderHeadersAll_header_id", primaryjoin="XxplanmaxHeaderDtls.sales_order_header_id==OeOrderHeadersAll.header_id", foreign_keys="[OeOrderHeadersAll.header_id]", viewonly=True)
         
 
     
