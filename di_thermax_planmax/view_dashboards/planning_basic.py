@@ -127,7 +127,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=['tables_4KqBA492C'])
+                          details=[])
     metrics_u6_jxLXFw = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.order_status != 'CANCELLED').filter(PlanmaxHeaders.split_line_number == 1).filter(PlanmaxHeaders.group_name == 'HO')""",
@@ -179,7 +179,7 @@ class PlanningBasic(Dashboard):
                           drill_downs={},
                           actions=[],
                           inline_actions={'name': '', 'value': ''},
-                          details=['tables_C32vUI4jK'])
+                          details=[])
     metrics_1ioq69E6l = PanelComponent(component_type="metrics",
                           name="Demo Header",
                           query="""Select(func.count(PlanmaxHeaders.sales_order_header_id).label('count')).filter(PlanmaxHeaders.prn_creation_status.not_in(['C', 'NA'])).filter(PlanmaxHeaders.order_status.not_in(['CLOSED', 'CANCELLED']))""",
