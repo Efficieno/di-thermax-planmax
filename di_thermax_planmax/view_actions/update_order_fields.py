@@ -12,15 +12,15 @@ class UpdateOrderFields(Action):
     __action_description__ = "Update Order Fields"
 
     # Non Editable fields 
-    sales_order_header_id = Parameter(display_name="sales_order_header_id", param_type=None, data_type=Integer, editable=False, show_on_form=True, values=None)
+    sales_order_header_id = Parameter(display_name="sales_order_header_id", param_type=None, data_type=Integer, editable=False, show_on_form=False, values=None)
 
-    model_line_id = Parameter(display_name="model_line_id", param_type=None, data_type=Integer, editable=False, show_on_form=True, values=None)
+    model_line_id = Parameter(display_name="model_line_id", param_type=None, data_type=Integer, editable=False, show_on_form=False, values=None)
 
-    order_intake_status = Parameter(display_name="order_intake_status", param_type=None, data_type=String, editable=False, show_on_form=True, values=None)
+    order_intake_status = Parameter(display_name="order_intake_status", param_type=None, data_type=String, editable=False, show_on_form=False, values=None)
 
-    bom_common_status = Parameter(display_name="bom_common_status", param_type=None, data_type=String, editable=False, show_on_form=True, values=None)
+    bom_common_status = Parameter(display_name="bom_common_status", param_type=None, data_type=String, editable=False, show_on_form=False, values=None)
 
-    prn_creation_status = Parameter(display_name="prn_creation_status", param_type=None, data_type=String, editable=False, show_on_form=True, values=None)
+    prn_creation_status = Parameter(display_name="prn_creation_status", param_type=None, data_type=String, editable=False, show_on_form=False, values=None)
   
     # Editable fields 
     order_status = Parameter(display_name="Order Status", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Open", "value": "OPEN"},
