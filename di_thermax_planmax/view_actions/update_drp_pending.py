@@ -15,12 +15,8 @@ class UpdateDRPPendingStatus(Action):
 
     model_line_id = Parameter(display_name="model_line_id", param_type=None, data_type=Integer, editable=False, show_on_form=False, values=None)
 
-    mat_planning_status = Parameter(display_name="DRP Pending", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Pending",
-                                                                                                                                                          "value": "P"},
-                                                                                                                                                         {"label": "In Progress",
-                                                                                                                                                          "value": "W"},
-                                                                                                                                                         {"label": "Completed",
-                                                                                                                                                          "value": "C"}])
+    mat_planning_status = Parameter(display_name="DRP Pending", param_type=None, data_type=String, editable=True, show_on_form=True, values=[{"label": "Completed",
+                                                                                                                                              "value": "C"}])
 
     @classmethod
     def execute_action(cls):
